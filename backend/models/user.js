@@ -2,9 +2,13 @@ const mongoose = require('mongoose'); // import mongoose
 const uniqueValidator = require('mongoose-unique-validator'); // import mongoose-unique-validator
 
 const userSchema = mongoose.Schema({ // define a schema for users
+  firstName: {type: String, required: true},
+  lastName: {type: String, required: true},
   email: { type: String, required: true, unique: true }, // define an email property, which is a required string and must be unique
   password: { type: String, required: true }, // define a password property, which is a required string
+  username: {type: String, required: false, unique: true},
 });
+
 
 userSchema.plugin(uniqueValidator); // call the plugin method, which adds the uniqueValidator plugin to the schema
 // The uniqueValidator plugin validates that the email property is unique before saving the user to the database.
