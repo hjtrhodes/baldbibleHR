@@ -7,7 +7,7 @@ const path = require('path'); // import path module, to deal with file paths
 const { password }  = require('./config'); // import the password property of the object exported from config.js
 // the password in config.js is the password for the user pablojoyce, which has read and write access to the database
 
-const stuffRoutes = require('./routes/stuff'); // import the router object, which is exported from stuff.js
+const stuffRoutes = require('./routes/image'); // import the router object, which is exported from stuff.js
 const userRoutes = require('./routes/user'); // import the router object, which is exported from user.js
 
 const app = express(); // call the express function, which returns an object with a listen method
