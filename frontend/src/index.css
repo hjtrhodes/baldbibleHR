@@ -1,3 +1,6 @@
+/* This is the boilerscript css that comes with Vite  - it applies to the default Vite Setup Page and can be deleted */
+/* This styling is global */
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
