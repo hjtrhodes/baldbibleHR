@@ -1,3 +1,5 @@
+// This is the entry point for the Vue application, we shouldn't need to change much in here
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
