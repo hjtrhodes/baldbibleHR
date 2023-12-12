@@ -1,27 +1,24 @@
 // This is where our routes should go - I have deleted the boilerplate content
-
-import { useState } from 'react'
-import './App.css'
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+{/* Any component put here will appear globally, for example the Navbar may go here. */}
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+{/* All other Routes Go Here */}
+
+
+          </Routes>
+      </Router>
     </>
-  )
+  );
 }
 
 export default App
