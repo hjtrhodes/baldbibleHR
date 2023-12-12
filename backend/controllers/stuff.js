@@ -1,4 +1,4 @@
-const Thing = require('../models/thing'); // import the Mongoose Thing model Schmea from thing.js
+const Thing = require('../models/images'); // import the Mongoose Thing model Schmea from thing.js
 const fs = require('fs'); // import the fs package
 // The fs package is used to modify the file system.
 

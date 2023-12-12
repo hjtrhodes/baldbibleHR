@@ -2,11 +2,11 @@ const mongoose = require('mongoose'); // import mongoose
 const uniqueValidator = require('mongoose-unique-validator'); // import mongoose-unique-validator
 
 const userSchema = mongoose.Schema({ // define a schema for users
-  firstName: {type: String, required: true},
-  lastName: {type: String, required: true},
-  email: { type: String, required: true, unique: true }, // define an email property, which is a required string and must be unique
+  firstName: {type: String, required: false},
+  lastName: {type: String, required: false},
+  email: { type: String, required: true }, // define an email property, which is a required string and must be unique
   password: { type: String, required: true }, // define a password property, which is a required string
-  username: {type: String, required: false, unique: true},
+  username: {type: String, required: false},
 });
 
 
