@@ -3,7 +3,7 @@ const User = require("../models/user");
 
 const USERS = require("./user_data");
 
-const mongoDbUrl = process.env.mongoDbUrl || "mongodb+srv://team3-baldbible:Baldmakers2023@bald-bible-database.vqxy3e3.mongodb.net";
+const mongoDbUrl = process.env.mongoDbUrl || "mongodb+srv://team3-baldbible:Baldmakers2023@bald-bible-database.vqxy3e3.mongodb.net/baldbible";
 
 // connecting to the database:
 mongoose.connect(mongoDbUrl, {
@@ -28,11 +28,16 @@ const findUser = async() => {
     return users
 };
 
-// main seed function:
-const seedDB = async() => {
-    await resetDB();
-    await insertUsers();
-    process.kill(0)
+const seedDB = async () => {
+  try {
+      await resetDB();
+      await insertUsers();
+      console.log('Seed completed successfully.');
+  } catch (error) {
+      console.error('Seed failed:', error);
+  } finally {
+      process.exit(0);
+  }
 };
 
 seedDB();
