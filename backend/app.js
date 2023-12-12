@@ -14,7 +14,7 @@ const app = express(); // call the express function, which returns an object wit
 
 // app.use(cors()); // call the use method, which adds a middleware function to the middleware stack, to deal with the CORS policy
 
-mongoose.connect(`mongodb+srv://pablojoyce:${password}@gofullstack.se9tvhr.mongodb.net/?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://team3-baldbible:${password}@bald-bible-database.vqxy3e3.mongodb.net/?retryWrites=true&w=majority`)
   .then(() => { // call the then method, which adds a callback function to the promise, to handle the success case
     console.log('Successfully connected to MongoDB Atlas!'); // log a message to the console
   })
