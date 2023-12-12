@@ -20,6 +20,6 @@ Add a `config.js` file in the backend and add this to `.gitignore`.
 Add the MongoDB password to `config.js`.
 ```
 module.exports = {
-  password: 'your-password' 
+  password: 'db-user-password' 
 } 
 ```
