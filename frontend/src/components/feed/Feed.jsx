@@ -3,7 +3,6 @@ import './Feed.css'
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import { flexbox } from '@mui/system';
 
 
 const Feed = () => {
