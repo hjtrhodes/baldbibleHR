@@ -6,10 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "nodemon server.js",
     "start": "concurrently \"npm run backend\" \"cd ../frontend && npm run dev\"",
-    
     "seed": "node ./seeds/seed.js"
-
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",

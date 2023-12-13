@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const User = require("../models/user");
-const password = require("../config")
 const USERS = require("./user_data");
+const { password }  = require('../config');
 
-const mongoDbUrl = process.env.mongoDbUrl || `mongodb+srv://team3-baldbible:${password}@bald-bible-database.vqxy3e3.mongodb.net/baldbible`;
+const mongoDbUrl = process.env.mongoDbUrl || `mongodb+srv://team3-baldbible:${password}@bald-bible-database.vqxy3e3.mongodb.net/baldbible?retryWrites=true&w=majority`;
 
 // connecting to the database:
 mongoose.connect(mongoDbUrl, {
