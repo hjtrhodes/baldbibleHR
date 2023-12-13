@@ -61,6 +61,7 @@ const Feed = () => {
     
     //Box, ImageList and ImageListItem are comonents from the @mui library
     return (
+        <div className="image-layout">
         <Box sx={{ width: "100", overflowy: 'scroll' }}>
         <ImageList variant="masonry" cols={3} gap={8}>
             {itemData.map((item) => (
@@ -75,6 +76,7 @@ const Feed = () => {
             ))}
         </ImageList>
         </Box>
+        </div>
     );
     }
 
