@@ -43,5 +43,8 @@ app.use('/images', express.static(path.join(__dirname, 'images'))); // call the 
 
 app.use('/api/stuff', stuffRoutes); // call the use method, which adds a middleware function to the middleware stack, to handle requests to the /api/stuff endpoint
 app.use('/api/auth', userRoutes); // call the use method, which adds a middleware function to the middleware stack, to handle requests to the /api/auth endpoint
+app.get('/api/health', (req, res) => { 
+  res.status(200).json({ message: 'The server is running. All is good.' });
+});
 
 module.exports = app; // export the app object, so it can be used by other code, e.g. our tests

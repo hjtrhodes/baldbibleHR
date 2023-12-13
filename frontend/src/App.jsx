@@ -1,5 +1,5 @@
 // This is where our routes should go - I have deleted the boilerplate content
-import React from 'react';
+// import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 
