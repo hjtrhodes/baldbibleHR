@@ -8,4 +8,5 @@ const USERS = [
     { firstName: "Liza", lastName: "Tarasova", email: "tarasova.liza.vic@gmail.com", password: "Secret123456789", username: "liza_tarasova" },
 ];
 
+
 module.exports = USERS;
