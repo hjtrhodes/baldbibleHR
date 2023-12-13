@@ -7,14 +7,16 @@ const path = require('path'); // import path module, to deal with file paths
 const { password }  = require('./config'); // import the password property of the object exported from config.js
 // the password in config.js is the password for the user pablojoyce, which has read and write access to the database
 
-const stuffRoutes = require('./routes/stuff'); // import the router object, which is exported from stuff.js
+const stuffRoutes = require('./routes/image'); // import the router object, which is exported from stuff.js
 const userRoutes = require('./routes/user'); // import the router object, which is exported from user.js
 
 const app = express(); // call the express function, which returns an object with a listen method
 
 // app.use(cors()); // call the use method, which adds a middleware function to the middleware stack, to deal with the CORS policy
 
+
 mongoose.connect(`mongodb+srv://team3-baldbible:${password}@bald-bible-database.vqxy3e3.mongodb.net/baldbible?retryWrites=true&w=majority`)
+
   .then(() => { // call the then method, which adds a callback function to the promise, to handle the success case
     console.log('Successfully connected to MongoDB Atlas!'); // log a message to the console
   })
