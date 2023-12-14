@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Routes, useNavigate } from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './components/NavBar/NavBar';
+import LoginSignup from './pages/LoginSignup';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <NavBar navigate={useNavigate()} />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/loginsignup" element={<LoginSignup />} />
 {/* All other Routes Go Here */}
 
           </Routes>

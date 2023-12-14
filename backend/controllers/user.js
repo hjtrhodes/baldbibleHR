@@ -6,8 +6,11 @@ exports.signup = (req, res, next) => { // call the post method, which adds a rou
   bcrypt.hash(req.body.password, 10) // call the hash method, which returns a promise, which resolves to a hash of the password
     .then(hash => { // call the then method, which adds a callback function to the promise, to handle the success case
       const user = new User({ // create a new User object, using the User model
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email, // set the email property of the User object to the email property of the request body
-        password: hash // set the password property of the User object to the hash of the password
+        password: hash, // set the password property of the User object to the hash of the password
+        username: req.body.username
       }); // end of const user = new User({ ... })
       user.save() // call the save method, which saves the User object to the database
         .then(() => res.status(201).json({ message: 'User added successfully!' })) // call the then method, which adds a callback function to the promise, to handle the success case

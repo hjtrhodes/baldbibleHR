@@ -1,4 +1,3 @@
-import React from 'react'
 import './Feed.css'
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
@@ -72,12 +71,13 @@ const Feed = () => {
     ];
 
     return (
-        <div className="image-layout">
-        <Box sx={{ width: "400", overflowy: 'scroll' }}>
-        <ImageList variant="masonry" cols={3} gap={0}>
+        <div id="image-layout-outer-box" className="image-layout">
+        <Box id="image-layout-inner-box" sx={{ width: "400", overflowy: 'scroll' }}>
+        <ImageList id="image-list" variant="masonry" cols={3} gap={0}>
             {itemData.map((item) => (
-            <ImageListItem key={item.img}>
+            <ImageListItem key={item.img} id={`image-${item.img}`} >
                 <img
+                
                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 src={`${item.img}?w=248&fit=crop&auto=format`}
                 alt={item.title}
