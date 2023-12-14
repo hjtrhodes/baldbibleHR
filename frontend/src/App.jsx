@@ -3,6 +3,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import LoginSignup from './pages/LoginSignup';
+import Upload from './pages/photo upload/upload';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/upload" element={<Upload />} />
             <Route path="/loginsignup" element={<LoginSignup />} />
 {/* All other Routes Go Here */}
 
