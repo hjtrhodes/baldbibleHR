@@ -46,15 +46,15 @@ const findUser = async() => {
 
 // seed function called by npm run seed
 const seedDB = async () => {
-  try {
-      await resetDB();
-      await insertUsers();
-      console.log('Seed completed successfully.');
-  } catch (error) {
-      console.error('Seed failed:', error);
-  } finally {
-      process.exit(0);
-  }
+    try {
+        await resetDB();
+        await insertUsers();
+        console.log('Seed completed successfully.');
+    } catch (error) {
+        console.error('Seed failed:', error);
+    } finally {
+        process.exit(0);
+    }
 };
 
 seedDB();
