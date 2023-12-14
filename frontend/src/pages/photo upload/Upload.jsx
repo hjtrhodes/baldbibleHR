@@ -20,11 +20,18 @@ const Upload = () => {
     const file = e.target.files[0];
     setFile(file);
     previewFiles(file);
-    // setfile(e.target.files)
   }
-  const handleSubmit = () => { 
-    // console.log(e.target.files)
-    // setfile(e.target.files)
+  
+  const handleSubmit = async(e) => { 
+    e.preventDefault();
+    const result = await axios.post("http://localhost:8080", {
+      image: image
+    })
+    try{ 
+      console.log(result.data)
+    }catch(err){
+      console.log(err)
+    }
   }
   return (
     <>
