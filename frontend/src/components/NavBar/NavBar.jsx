@@ -1,96 +1,56 @@
 // import React from 'react';
+import Button from '../Button/Button';
 import './NavBar.css';
 
 const NavBar = ({ navigate }) => {
-  const token = window.localStorage.getItem("token"); // getting token from local storage
+  // const token = window.localStorage.getItem("token"); // getting token from local storage
+  const token = true;
 
   const logout = () => {
     window.localStorage.clear(); //clearing all items from local storage
     window.localStorage.removeItem('token'); //specifically removing the 'token' item
   };
 
+    // Placeholder function for handling the Add button click
+  const handleAddClick = () => {
+    // Implement your logic for handling the Add button click
+    // For example, navigate to the upload image page
+    navigate("/upload-image");
+  };
+
   console.log(token);
 
-  if (!token) {
-    // User is not logged in
     return (
       <nav className="nav">
         {/* Baldbible Home-button */}
-        <button
-          className="nav-btn Baldbible Home-button"
+        <Button ariaLabel='Navigate to Baldbible Home'
           onClick={() => navigate("/")}
-          aria-label="Navigate to Baldbible Home"
-        >
-          <span>Baldbible</span>
-        </button>
+          className="btn home-btn"
+        >Baldbible</Button>
 
         {/* Spacer to push buttons to the right */}
         <div className="spacer" />
 
         {/* Sign Up and Login buttons with reduced spacing */}
         <div className="linkcontainer">
-          <button
-            className="nav-btn"
+          {!token && <Button ariaLabel='Navigate to Sign Up'
             onClick={() => navigate("/SignUp")}
-            aria-label="Navigate to Sign Up"
-          >
-            <span>SignUp</span>
-          </button>
+          >Sign Up</Button>}
 
-          <button
-            className="nav-btn"
+          {!token && <Button ariaLabel='Navigate to Sign Up'
             onClick={() => navigate("/Login")}
-            aria-label="Navigate to Login"
-          >
-            <span>Login</span>
-          </button>
-        </div>
-      </nav>
-    );
-  } else {
-    // User is logged in
-    return (
-      <nav className="nav">
-        {/* Baldbible Home-button */}
-        <button
-          className="nav-btn baldbible-button"
-          onClick={() => navigate("/")}
-          aria-label="Navigate to Baldbible Home"
-        >
-          <span>Baldbible</span>
-        </button>
+          >Log In</Button>}
 
-        {/* Spacer to push buttons to the right */}
-        <div className="spacer" />
+          {token && <Button ariaLabel='Log out current user'
+            onClick={() => navigate("/")}
+          >Log Out</Button>}
 
-        {/* Logout and Add buttons with reduced spacing */}
-        <div className="linkcontainer">
-          <button
-            className="nav-btn"
-            onClick={logout}
-            aria-label="Logout"
-          >
-            <span>Logout</span>
-          </button>
-
-          <button
-            className="nav-btn"
+          {token && <Button ariaLabel='Add an image'
             onClick={() => handleAddClick()}
-            aria-label="Upload Image"
-          >
-            <span>Upload image</span>
-          </button>
+          >Upload Image</Button>}
         </div>
       </nav>
     );
-  }
-};
-
-// Placeholder function for handling the Add button click
-const handleAddClick = () => {
-  // Implement your logic for handling the Add button click
-  // For example, navigate to the upload image page
-  navigate("/upload-image");
 };
 
 export default NavBar;

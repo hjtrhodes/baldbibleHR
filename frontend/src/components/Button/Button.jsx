@@ -2,26 +2,25 @@ import PropTypes from 'prop-types';
 import './Button.css';
 
 const Button = ({
+  children,
+  ariaLabel = 'button',
   className = 'btn',
-  handleClickFunction, 
-  size = 48,
+  onClick, 
 }) => {
   
-  const buttonSize = {
-    width: `${size}px`,
-    height: `${size}px`,
-  };
   
   return (
-    <button style={buttonSize} className={className} onClick={handleClickFunction} >
+    <button aria-label={ariaLabel} className={className} onClick={onClick} >
+      <span>{children}</span>
     </button>
   );
 }
 
 Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  ariaLabel: PropTypes.string,
   className: PropTypes.string,
-  handleClickFunction: PropTypes.func,
-  size: PropTypes.number,
+  onClick: PropTypes.func,
 }
 
 export default Button;

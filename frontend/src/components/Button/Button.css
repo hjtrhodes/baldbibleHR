@@ -1,0 +1,104 @@
+/* Reset styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn,
+.btn *,
+.btn :after,
+.btn :before,
+.btn:after,
+.btn:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: Arial; 
+  font-size: 80%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  text-transform: uppercase;
+  border-radius: 99rem;
+  border-width: 25px;
+  overflow: hidden;
+  padding: 0.6rem 1.8rem;
+  position: relative;
+}
+
+.btn:disabled {
+  cursor: default;
+}
+
+.btn:-moz-focusring {
+  outline: auto;
+}
+
+.btn svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn [hidden] {
+  display: none;
+}
+
+.btn span {
+  mix-blend-mode: difference;
+}
+
+.btn:after,
+.btn:before {
+  background: linear-gradient(
+    90deg,
+    #fff 25%,
+    transparent 0,
+    transparent 50%,
+    #fff 0,
+    #fff 75%,
+    transparent 0
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateY(var(--progress, 100%));
+  transition: transform 0.2s ease;
+}
+
+.btn:after {
+  --progress: -100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 25%,
+    #fff 0,
+    #fff 50%,
+    transparent 0,
+    transparent 75%,
+    #fff 0
+  );
+  z-index: -1;
+}
+
+.btn:hover:after,
+.btn:hover:before {
+  --progress: 0;
+}
+
+.home-btn {
+  font-size: 1.5rem;
+}
+
