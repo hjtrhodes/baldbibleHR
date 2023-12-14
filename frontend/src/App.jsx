@@ -16,7 +16,6 @@ function App() {
             <Route path="/" element={<Home />} />
 {/* All other Routes Go Here */}
 
-
           </Routes>
 
     </>
