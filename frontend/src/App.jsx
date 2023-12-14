@@ -2,6 +2,7 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import Upload from './pages/photo upload/upload';
 
 function App() {
 
@@ -12,8 +13,8 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/upload" element={<Upload />} />
 {/* All other Routes Go Here */}
-
 
           </Routes>
       </Router>

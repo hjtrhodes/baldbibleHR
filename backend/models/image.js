@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'); // import mongoose
 
 const thingSchema = mongoose.Schema({ // define a schema for things
-  description: { type: String, required: true }, // define a description property, which is a required string
+  // description: { type: String, required: true }, // define a description property, which is a required string
   imageUrl: { type: String, required: true }, // define an imageUrl property, which is a required string
   userId: { type: String, required: true }, // define a userId property, which is a required string
 });
