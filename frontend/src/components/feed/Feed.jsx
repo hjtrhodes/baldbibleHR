@@ -32,7 +32,7 @@ const Feed = () => {
         {
             img: 'https://images.unsplash.com/photo-1589279715734-6631a314dfa2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFsZCUyMG1lbnxlbnwwfHwwfHx8MA%3D%3D',
             title: 'Blinds',
-            height: "400", 
+            height: "200", 
         },
         {
             img: 'https://images.unsplash.com/photo-1574180045827-681f8a1a9622',
@@ -52,7 +52,7 @@ const Feed = () => {
         {
             img: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7',
             title: 'Coffee',
-            height: "400", 
+            height: "300", 
         },
         {
             img: 'https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee',
@@ -67,11 +67,10 @@ const Feed = () => {
         {
             img: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4',
             title: 'Coffee table',
-            height: "100", 
+            height: "400", 
         },
     ];
-    
-    //Box, ImageList and ImageListItem are comonents from the @mui library
+
     return (
         <div className="image-layout">
         <Box sx={{ width: "400", overflowy: 'scroll' }}>
@@ -85,7 +84,7 @@ const Feed = () => {
                 width={item.width}
                 height={item.height}
                 loading="lazy"
-                style={{ height: `${item.height}px`
+                style={{ height: `${item.height}px` // this will change the height of the image based on likes/upvotes
                     }}
                         
 
