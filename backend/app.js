@@ -53,7 +53,13 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ message: 'The server is running. All is good.' });
 });
 app.post("/", async(req,res)=> {
-  console.log(req.body)
+  const {image} = req.body;
+  cloudinary.uploader.upload(image,{ 
+    upload_preset: 'unsigned_upload',
+    public_id: `${username}avatar`,
+    allowed_formats: ['png', 'jpg', 'jpeg', 'svg', 'ico', 'jfig', 'webp' ]
+  },
+  function(error, result) {console.log(result); });
   res.json("I have recieved your data")
 })
 
