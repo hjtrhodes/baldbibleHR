@@ -12,7 +12,7 @@ const Feed = () => {
         {
             img: 'https://images.unsplash.com/photo-1624395213043-fa2e123b2656?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFsZCUyMG1lbnxlbnwwfDF8MHx8fDA%3D',
             title: 'Bed',
-            height: "400", 
+            height: "300", 
         },
         {
             img: 'https://images.unsplash.com/photo-1556135063-800a4cfe3206?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmFsZCUyMG1lbnxlbnwwfDF8MHx8fDA%3D',
