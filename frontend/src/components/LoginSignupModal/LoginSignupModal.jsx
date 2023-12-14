@@ -35,7 +35,7 @@ const handleLoginSubmit = async (event) => {
     },
         body: JSON.stringify({ email: email, password: password })
     });
-    if (response.status === 200) {
+    if (response.status === 201) {
       // GOOD NEWS.
         console.log("token");
         let data = await response.json();
@@ -133,7 +133,7 @@ const handleUserNameChange = (event) => {
             </div>
             )}
 
-            <button id="login-submit" type="submit">Submit</button>
+            <button id="login-submit" type="submit">Login</button>
             </form>
         </div>
         </>
