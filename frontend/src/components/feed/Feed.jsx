@@ -2,6 +2,7 @@ import './Feed.css'
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import GetImages from '../getImages/GetImages';
 
 
 const Feed = () => {
@@ -92,6 +93,7 @@ const Feed = () => {
             </ImageListItem>
             ))}
         </ImageList>
+        {/* <GetImages /> */}
         </Box>
         </div>
     );
