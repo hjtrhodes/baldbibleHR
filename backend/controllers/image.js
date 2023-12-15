@@ -70,3 +70,42 @@ exports.getAllStuff = (req, res, next) => { // call the get method, which adds a
     .then(images => res.status(200).json(images)) // call the then method, which adds a callback function to the promise, to handle the success case
     .catch(error => res.status(400).json({ error: error })); // call the catch method, which adds a callback function to the promise, to handle the failure case
 }
+
+
+exports.Likes = (req, res) => {
+  const newLike = req.body.likes;
+
+  Post.findOneAndUpdate(
+    { _id: req.params.id }, 
+    { $inc: { likes: newLike } }, 
+    { new: true }, 
+    (err, updatedImage) => {
+      if (err) {
+        console.error('Like not added:', err);
+        res.status(500).json({ message: 'Internal Server Error' });
+      } else {
+        const token = TokenGenerator.jsonwebtoken(req.user_id)
+        res.status(201).json({ message: 'Like added successfully', token: token, updatedImage });
+      }
+    }
+  );
+},
+
+
+exports.GetLikes = async (req, res) => {
+  try {
+      const imageId = req.params.id;
+      const image = await Post.findById(postId);
+
+      if (!image) {
+          return res.status(404).json({ error: 'Image not found' });
+      }
+
+      const likes = image.likes;
+      const token = TokenGenerator.jsonwebtoken(req.user_id);
+      res.status(200).json({ likes, token });
+  } catch (err) {
+      console.error('Error retrieving image likes:', err);
+      res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
