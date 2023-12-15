@@ -37,7 +37,7 @@ const NavBar = ({ navigate }) => {
         <div className="spacer" />
 
         {/* Sign Up and Login buttons with reduced spacing */}
-        <div className="linkcontainer">
+        <div className="nav-link-container">
           {!token && <Button ariaLabel='Navigate to Sign Up'
             onClick={() => navigate("/Signup")}
           >Sign Up</Button>}
