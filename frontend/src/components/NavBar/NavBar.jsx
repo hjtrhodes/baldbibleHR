@@ -3,8 +3,8 @@ import Button from '../Button/Button';
 import './NavBar.css';
 
 const NavBar = ({ navigate }) => {
-  // const token = window.localStorage.getItem("token"); // getting token from local storage
-  const token = true;
+  const token = window.localStorage.getItem("token"); // getting token from local storage
+  // const token = true;
 
   const logout = () => {
     window.localStorage.clear(); //clearing all items from local storage
