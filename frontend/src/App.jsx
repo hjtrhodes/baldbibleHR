@@ -2,7 +2,8 @@
 // import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import LoginSignup from './pages/LoginSignup';
+import SignupPage from './pages/Signup';
+import LoginPage from './pages/Login';
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/loginsignup" element={<LoginSignup />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/login" element={<LoginPage />} />
 {/* All other Routes Go Here */}
 
           </Routes>
