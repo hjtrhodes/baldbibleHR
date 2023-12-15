@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./Signup.css"
+import Button from '../Button/Button';
 import baseUrl from '../../../util/baseUrl';
 
 const Signup = () => {
@@ -104,7 +105,13 @@ const handleUserNameChange = (event) => {
                 <p >{signupStatus}</p>
             </div>
             )}
-            <button id="sign-up-submit" type="submit">Sign Up</button>
+            <Button 
+            id="sign-up-submit" 
+            type="submit"
+            ariaLabel="Login"
+            className="btn">
+                Sign Up
+            </Button>
             </form>
         </div>
 

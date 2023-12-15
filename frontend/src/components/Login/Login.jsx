@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./Login.css"
+import Button from '../Button/Button';
 import baseUrl from '../../../util/baseUrl';
 
 const Login = () => {
@@ -63,7 +64,13 @@ const handlePasswordChange = (event) => {
             </div>
             )}
 
-            <button id="login-submit" type="submit">Login</button>
+            <Button 
+            id="login-submit" 
+            type="submit"
+            ariaLabel="Login"
+            className="btn">
+                Login
+            </Button>
             </form>
         </div>
         </>
