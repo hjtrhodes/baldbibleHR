@@ -5,6 +5,7 @@ import axios from 'axios';
 const Upload = () => {
   const [file, setFile] = useState("");
   const [image, setImage] = useState("");
+  const [uploadedIMG, setUpload] = useState("")
 
   useEffect(() => {
     console.log(image);
@@ -32,6 +33,7 @@ const Upload = () => {
     })
     try{ 
       const uploadedIMG = result.data.public_id;
+      setUpload(uploadedIMG);
     }catch(err){
       console.log(err)
     }
