@@ -6,7 +6,14 @@ const multer = require('../middleware/multer-config'); // import the object expo
 
 const stuffCtrl = require('../controllers/image'); // import the object exported from controllers/stuff.js
 
-router.get('/', auth, stuffCtrl.getAllStuff);  // call the get method, which adds a route to the router object, the auth middleware is executed before the getAllStuff function, to handle GET requests to the /api/stuff endpoint referencing the getAllStuff function in controllers/stuff.js
+
+// Get request for all images
+// router.get("/", (req,res) =>{
+//     // 1. Retreive data from database
+//     // 2. Send url back to frontend
+//     res.json({img:img});
+// });
+router.get('/', stuffCtrl.getAllStuff);  // call the get method, which adds a route to the router object, the auth middleware is executed before the getAllStuff function, to handle GET requests to the /api/stuff endpoint referencing the getAllStuff function in controllers/stuff.js
 
 router.post('/', auth, multer, stuffCtrl.createImage); // call the post method, which adds a route to the router object, to handle POST requests to the /api/stuff endpoint referencing the createImage function in controllers/stuff.js
 
