@@ -4,7 +4,6 @@ const commentSchema = mongoose.Schema({
     content: { type: String, required: true },
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     imageId: { type: mongoose.Schema.Types.ObjectId, ref: 'Images', required: true },
-    // created: { type: Date, default: Date.now },
 
 }, { timestamps: true });
 
