@@ -93,7 +93,7 @@ const Feed = () => {
             </ImageListItem>
             ))}
         </ImageList>
-        <GetImages />
+        {/* <GetImages /> */}
         </Box>
         </div>
     );
