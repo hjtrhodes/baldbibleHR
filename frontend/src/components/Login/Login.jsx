@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./Login.css"
 import baseUrl from '../../../util/baseUrl';
+import Button from "../Button/Button.jsx"
 
 const Login = () => {
     // For login
@@ -51,7 +52,11 @@ const handlePasswordChange = (event) => {
     return (
     <>
         {/* This is the login form */}
-        <div className="form-container sign-in-container">
+    <div className="container">
+    <div className="top"></div>
+    <div className="bottom"></div>
+    <div className="center">
+        <div className='loginform'>
             <form onSubmit={handleLoginSubmit}>
             <h1>Login</h1>
             <input id="login-email" type="email" placeholder="Email" value={ email } onChange={handleEmailChange} />
@@ -63,9 +68,11 @@ const handlePasswordChange = (event) => {
             </div>
             )}
 
-            <button id="login-submit" type="submit">Login</button>
-            </form>
-        </div>
+            <Button id="login-submit" type="submit" aria-label="Login" className="btn">Login</Button>
+            </form></div>
+    <h2>&nbsp;</h2>
+    </div>
+    </div>
         </>
 );
 };
