@@ -39,11 +39,11 @@ const NavBar = ({ navigate }) => {
         {/* Sign Up and Login buttons with reduced spacing */}
         <div className="linkcontainer">
           {!token && <Button ariaLabel='Navigate to Sign Up'
-            onClick={() => navigate("/LoginSignup")}
+            onClick={() => navigate("/Signup")}
           >Sign Up</Button>}
 
           {!token && <Button ariaLabel='Navigate to Sign Up'
-            onClick={() => navigate("/LoginSignup")}
+            onClick={() => navigate("/Login")}
           >Log In</Button>}
 
           {token && <Button ariaLabel='Log out current user'
@@ -54,22 +54,6 @@ const NavBar = ({ navigate }) => {
             onClick={handleAddClick}
           >Upload Image</Button>}
 
-          {/* BELOW is a harder to read but more performant version of the above */}
-          {/* {token ? <>
-            <Button ariaLabel='Log out current user'
-            onClick={handleLogOut}
-            >Log Out</Button>
-            <Button ariaLabel='Add an image'
-              onClick={handleAddClick}
-            >Upload Image</Button>
-          </> : <>
-          <Button ariaLabel='Navigate to Login'
-              onClick={() => navigate("/Login")}
-              >Log In</Button>
-              <Button ariaLabel='Navigate to Sign Up'
-                onClick={() => navigate("/SignUp")}
-              >Sign Up</Button>
-          </>} */}
           
 
         </div>
