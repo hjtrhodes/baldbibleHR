@@ -2,6 +2,7 @@ import likebutton from './static/like.png';
 import { useState, useEffect } from 'react';
 import './likeButton.css';
 import LikeAmountDisplay from '../LikesAmountDisplay/LikesAmountDisplay';
+import baseUrl from '../../../util/baseUrl';
 
 const LikeButton = (props) => {
     const [isLiked, setIsLiked] = useState(false);
@@ -10,7 +11,7 @@ const LikeButton = (props) => {
 
     const updateLikesOnServer = async (newLikes) => {
         try {
-        const response = await fetch(`/api/auth/image/${props.image_id}/likes`, {
+        const response = await fetch(`${baseUrl}/api/auth/image/${props.image_id}/likes`, {
             method: 'put',
             headers: {
             'Content-Type': 'application/json',
@@ -32,7 +33,7 @@ const LikeButton = (props) => {
 
     const AddOrRemoveImageIdtoUserifLikedOrUnliked = async () => {
     try {
-        const response = await fetch(`/api/auth/user/likes`, {
+        const response = await fetch(`${baseUrl}/api/auth/user/likes`, {
         method: 'put',
         headers: {
             'Content-Type': 'application/json',

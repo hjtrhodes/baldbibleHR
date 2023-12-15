@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import LikeButton from '../LikesButton/LikesButton';
+import "./GetImages.css"
 
 
 const GetImages = ({ }) => {
@@ -27,7 +29,13 @@ const GetImages = ({ }) => {
   
       return(
         <>
-        <div>{images.map(imgData => <img src={imgData.imageURL}></img>)}</div>
+        <div className='image'>
+          {images.map(imgData => <img src={imgData.imageURL} className='image'></img>)}
+          
+        </div>
+        <div className='likebutton' >
+          <LikeButton image_id={ images._id }/>
+        </div>
         </>
       )
 }

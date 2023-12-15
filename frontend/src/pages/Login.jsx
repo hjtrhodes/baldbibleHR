@@ -1,5 +1,5 @@
 import Login from "../components/Login/Login.jsx";
-import LikeButton from "../components/LikesButton/LikesButton.jsx";
+import GetImages from "../components/getimages/GetImages.jsx";
 
 
 const LoginPage = () => {
@@ -8,7 +8,7 @@ const LoginPage = () => {
         <>
         <div>
             <Login />
-            <LikeButton />
+            <GetImages />
         </div>
         </>
     )
