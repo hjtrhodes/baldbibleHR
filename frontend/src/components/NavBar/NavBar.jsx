@@ -11,6 +11,11 @@ const NavBar = ({ navigate }) => {
     window.localStorage.removeItem('token'); //specifically removing the 'token' item
   };
 
+  const handleLogOut = () => {
+    logout();
+    navigate('/');
+  };
+
     // Placeholder function for handling the Add button click
   const handleAddClick = () => {
     // Implement your logic for handling the Add button click
@@ -42,12 +47,31 @@ const NavBar = ({ navigate }) => {
           >Log In</Button>}
 
           {token && <Button ariaLabel='Log out current user'
-            onClick={() => navigate("/")}
+            onClick={handleLogOut}
           >Log Out</Button>}
 
           {token && <Button ariaLabel='Add an image'
-            onClick={() => handleAddClick()}
+            onClick={handleAddClick}
           >Upload Image</Button>}
+
+          {/* BELOW is a harder to read but more performant version of the above */}
+          {/* {token ? <>
+            <Button ariaLabel='Log out current user'
+            onClick={handleLogOut}
+            >Log Out</Button>
+            <Button ariaLabel='Add an image'
+              onClick={handleAddClick}
+            >Upload Image</Button>
+          </> : <>
+          <Button ariaLabel='Navigate to Login'
+              onClick={() => navigate("/Login")}
+              >Log In</Button>
+              <Button ariaLabel='Navigate to Sign Up'
+                onClick={() => navigate("/SignUp")}
+              >Sign Up</Button>
+          </>} */}
+          
+
         </div>
       </nav>
     );
