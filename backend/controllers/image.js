@@ -101,7 +101,7 @@ exports.Likes = (req, res) => {
 exports.GetLikes = async (req, res) => {
   try {
       const imageId = req.params.id;
-      const image = await Post.findById(postId);
+      const image = await Image.findById(imageId);
 
       if (!image) {
           return res.status(404).json({ error: 'Image not found' });
