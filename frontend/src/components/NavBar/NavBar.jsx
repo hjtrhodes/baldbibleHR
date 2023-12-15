@@ -3,8 +3,8 @@ import Button from '../Button/Button';
 import './NavBar.css';
 
 const NavBar = ({ navigate }) => {
-  // const token = window.localStorage.getItem("token"); // getting token from local storage
-  const token = true;
+  const token = window.localStorage.getItem("token"); // getting token from local storage
+  // const token = false;
 
   const logout = () => {
     window.localStorage.clear(); //clearing all items from local storage
@@ -39,11 +39,11 @@ const NavBar = ({ navigate }) => {
         {/* Sign Up and Login buttons with reduced spacing */}
         <div className="linkcontainer">
           {!token && <Button ariaLabel='Navigate to Sign Up'
-            onClick={() => navigate("/SignUp")}
+            onClick={() => navigate("/LoginSignup")}
           >Sign Up</Button>}
 
           {!token && <Button ariaLabel='Navigate to Sign Up'
-            onClick={() => navigate("/Login")}
+            onClick={() => navigate("/LoginSignup")}
           >Log In</Button>}
 
           {token && <Button ariaLabel='Log out current user'
