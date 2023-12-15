@@ -3,6 +3,7 @@ const mongoose = require('mongoose'); // import mongoose module, to connect to M
 // mongoose is an ODM (Object Document Mapper) for MongoDB and Node.js. It allows us to interact with the MongoDB database in an object-oriented way. It provides a schema-based solution to model our application data with MongoDB. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
 // const cors = require('cors'); // import cors module, to deal with the CORS policy
 const path = require('path'); // import path module, to deal with file paths
+const cloudinary = require('./cloudinary/cloudinary')
 
 const { password }  = require('./config'); // import the password property of the object exported from config.js
 // the password in config.js is the password for the user pablojoyce, which has read and write access to the database
@@ -12,9 +13,11 @@ const userRoutes = require('./routes/user'); // import the router object, which 
 
 const app = express(); // call the express function, which returns an object with a listen method
 
-const cors = require("cors")
+const cors = require("cors");
+const { error } = require('console');
 // app.use(cors()); // call the use method, which adds a middleware function to the middleware stack, to deal with the CORS policy
-
+const bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '10mb'}));
 
 mongoose.connect(`mongodb+srv://team3-baldbible:${password}@bald-bible-database.vqxy3e3.mongodb.net/baldbible?retryWrites=true&w=majority`)
 
@@ -53,14 +56,23 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ message: 'The server is running. All is good.' });
 });
 app.post("/", async(req,res)=> {
-  const {image} = req.body;
-  cloudinary.uploader.upload(image,{ 
+  const { image } = req.body;
+  const uplaodedImage = await cloudinary.uploader.upload(image,{ 
     upload_preset: 'unsigned_upload',
-    public_id: `${username}avatar`,
     allowed_formats: ['png', 'jpg', 'jpeg', 'svg', 'ico', 'jfig', 'webp' ]
   },
-  function(error, result) {console.log(result); });
-  res.json("I have recieved your data")
+  function(error, res) {
+    if(error) {
+      console.log(error)
+    }
+    console.log(res); });
+  res.status(200).json(res)
+
+  try{
+    res.status(200).json(uplaodedImage)
+    }catch(err){
+      console.log(err)
+    }
 })
 
 

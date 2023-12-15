@@ -1,20 +1,23 @@
 import react from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Upload = () => {
-  const [file, setFile] = useState("")
-  const [image, setImage] = useState("")
+  const [file, setFile] = useState("");
+  const [image, setImage] = useState("");
 
-  const previewFiles= (file) => {
-    const reader = new FileReader() 
-    reader.readAsDataURL(file)
+  useEffect(() => {
+    console.log(image);
+  }, [image]);
+
+  const previewFiles = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
 
     reader.onloadend = () => {
-      setImage(reader.result) 
-    }
-    console.log(image);
-  }
+      setImage(reader.result);
+    };
+  };
   
   const handleChange = (e) => { 
     const file = e.target.files[0];
@@ -28,7 +31,7 @@ const Upload = () => {
       image: image
     })
     try{ 
-      console.log(result.data)
+      const uploadedIMG = result.data.public_id;
     }catch(err){
       console.log(err)
     }
