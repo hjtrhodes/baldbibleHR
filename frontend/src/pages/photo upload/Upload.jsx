@@ -19,7 +19,6 @@ const Upload = () => {
       setImage(reader.result);
     };
   };
-  
   const handleChange = (e) => { 
     const file = e.target.files[0];
     setFile(file);
@@ -27,13 +26,13 @@ const Upload = () => {
   }
   
   const handleSubmit = async(e) => { 
-    e.preventDefault();
-    const result = await axios.post("http://localhost:8080", {
-      image: image
-    })
     try{ 
+      e.preventDefault();
+      const result = await axios.post("http://localhost:8080", {
+        image: image
+      })
       const uploadedIMG = result.data.public_id;
-      setUpload(uploadedIMG);
+      window.location.reload() // set this to navigate to homepage plus image uploaded pop up box.
     }catch(err){
       console.log(err)
     }
