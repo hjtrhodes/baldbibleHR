@@ -1,21 +1,24 @@
 import react from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Upload = () => {
-  const [file, setFile] = useState("")
-  const [image, setImage] = useState("")
+  const [file, setFile] = useState("");
+  const [image, setImage] = useState("");
+  const [uploadedIMG, setUpload] = useState("")
 
-  const previewFiles= (file) => {
-    const reader = new FileReader() 
-    reader.readAsDataURL(file)
+  useEffect(() => {
+    console.log(image);
+  }, [image]);
+
+  const previewFiles = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
 
     reader.onloadend = () => {
-      setImage(reader.result) 
-    }
-    console.log(image);
-  }
-  
+      setImage(reader.result);
+    };
+  };
   const handleChange = (e) => { 
     const file = e.target.files[0];
     setFile(file);
@@ -23,12 +26,13 @@ const Upload = () => {
   }
   
   const handleSubmit = async(e) => { 
-    e.preventDefault();
-    const result = await axios.post("http://localhost:8080", {
-      image: image
-    })
     try{ 
-      console.log(result.data)
+      e.preventDefault();
+      const result = await axios.post("http://localhost:8080", {
+        image: image
+      })
+      const uploadedIMG = result.data.public_id;
+      window.location.reload() // set this to navigate to homepage plus image uploaded pop up box.
     }catch(err){
       console.log(err)
     }
