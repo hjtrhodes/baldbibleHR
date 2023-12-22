@@ -6,7 +6,9 @@
     "test": "jest --watchAll --verbose",
     "backend": "nodemon server.js",
     "start": "concurrently \"npm run backend\" \"cd ../frontend && npm run dev\"",
-    "seed": "node ./seeds/seed.js"
+    "seed": "node ./seeds/seed.js",
+    "start:test": "MONGO_URL='test' npm start"
+
   },
   "keywords": [],
   "author": "",
