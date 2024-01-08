@@ -61,12 +61,12 @@ app.use((req, res, next) => {
 
 app.use("/images", express.static(path.join(__dirname, "images"))); // call the use method, which adds a middleware function to the middleware stack, to serve the images in the images folder
 
-app.use("/api/stuff", stuffRoutes); // call the use method, which adds a middleware function to the middleware stack, to handle requests to the /api/stuff endpoint
+app.use("/api/image", imageRoutes); // call the use method, which adds a middleware function to the middleware stack, to handle requests to the /api/stuff endpoint
 app.use("/api/auth", userRoutes); // call the use method, which adds a middleware function to the middleware stack, to handle requests to the /api/auth endpoint
 app.get("/api/health", (req, res) => {
   res.status(200).json({ message: "The server is running. All is good." });
 });
-app.post("/", async (req, res) => {
+app.post("/upload", async (req, res) => {
   const { image } = req.body;
   try {
     const uploadedImage = await cloudinary.uploader.upload(image, {
