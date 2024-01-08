@@ -1,12 +1,12 @@
 const mongoose = require('mongoose'); // import mongoose
 
-const thingSchema = mongoose.Schema({ // define a schema for things
+const photoSchema = mongoose.Schema({ // define a schema for things
   // description: { type: String, required: true }, // define a description property, which is a required string
-  imageUrl: { type: String, required: true }, // define an imageUrl property, which is a required string
-  userId: { type: String, required: true }, // define a userId property, which is a required string
+  userID: { type: String, required: true }, // define a userId property, which is a required string
+  imageURL: { type: String, required: true }, // define an imageUrl property, which is a required string
 });
 
-module.exports = mongoose.model('Images', thingSchema); // export the model, which is created from the schema, and give it the name 'Thing'
+module.exports = mongoose.model('Images', photoSchema); // export the model, which is created from the schema, and give it the name 'Thing'
 // The model is exported so it can be used by other code, e.g. our routes.
 // The two arguments passed to the model method are the name of the model, and the schema to use.
 
