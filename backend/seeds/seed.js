@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const User = require("../models/user");
 const USERS = require("./user_data");
+const Image = require("../models/image")
+const IMAGES = require("./image_data")
 const { password }  = require('../config');
 const signup = require('../controllers/user')
 const bcrypt = require('bcrypt') 
@@ -30,6 +32,7 @@ mongoose.connect(mongoDbUrl, {
 // remove all documents from the databse:
 const resetDB = async() => {
     await User.deleteMany({});
+    await Image.deleteMany({});
 };
 
 //insert users to the DB:
@@ -44,11 +47,17 @@ const findUser = async() => {
     return users
 };
 
+//insert images to the DB:
+const insertImages = async () => { 
+  await Image.insertMany(IMAGES)
+} 
+
 // seed function called by npm run seed
 const seedDB = async () => {
     try {
         await resetDB();
         await insertUsers();
+        await insertImages();
         console.log('Seed completed successfully.');
     } catch (error) {
         console.error('Seed failed:', error);
