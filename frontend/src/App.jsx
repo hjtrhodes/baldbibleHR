@@ -7,6 +7,7 @@ import SignupPage from './pages/Signup';
 import LoginPage from './pages/Login';
 import Upload from './pages/photo upload/upload';
 
+
 function App() {
 
   return (
