@@ -4,7 +4,7 @@ const thingSchema = mongoose.Schema({ // define a schema for things
   description: { type: String, required: true }, // define a description property, which is a required string
   imageUrl: { type: String, required: true }, // define an imageUrl property, which is a required string
   userId: { type: String, required: true }, // define a userId property, which is a required string
-  likes: { type: Number, default: 0 },
+  likedByUser: { type: [String], default: [] },
 });
 
 module.exports = mongoose.model('Images', thingSchema); // export the model, which is created from the schema, and give it the name 'Thing'

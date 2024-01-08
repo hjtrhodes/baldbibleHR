@@ -1,5 +1,6 @@
 const express = require('express'); 
 const mongoose = require('mongoose'); 
+const cors = require('cors');
 const path = require('path'); // import path module, to deal with file paths
 
 const { password }  = require('./config'); // import the password property of the object exported from config.js
@@ -10,7 +11,14 @@ const userRoutes = require('./routes/user'); // import the router object, which 
 
 const app = express(); // call the express function, which returns an object with a listen method
 
-// app.use(cors()); // call the use method, which adds a middleware function to the middleware stack, to deal with the CORS policy
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 
 const dbname = process.env.MONGO_URL || 'baldbible'
 
@@ -39,6 +47,7 @@ app.use((req, res, next) => { // call the use method, which adds a middleware fu
   // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS'); // set the response header to allow the following methods
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   // call the next function which will be executed in the middleware stack
+  res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
 

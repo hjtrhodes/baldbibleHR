@@ -6,8 +6,7 @@ const userSchema = mongoose.Schema({ // define a schema for users
   lastName: {type: String, required: false},
   email: { type: String, required: true }, // define an email property, which is a required string and must be unique
   password: { type: String, required: true }, // define a password property, which is a required string
-  username: {type: String, required: false},
-  likedPostIds: {type: [String], default: []}
+  username: {type: String, required: false}
 });
 
 

@@ -28,15 +28,16 @@ const GetImages = ({ }) => {
 
   
       return(
-        <>
         <div className='image'>
-          {images.map(imgData => <img src={imgData.imageURL} className='image'></img>)}
-          
-        </div>
-        <div className='likebutton' >
-          <LikeButton image_id={ images._id }/>
-        </div>
-        </>
+        {images.map(imgData => (
+          <div key={imgData._id}>
+            <img src={imgData.imageURL} className='image' />
+            <div className='likebutton'>
+              <LikeButton image_id={imgData._id} />
+            </div>
+          </div>
+        ))}
+      </div>
       )
 }
 

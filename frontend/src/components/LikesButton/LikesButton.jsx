@@ -4,6 +4,11 @@ import './likeButton.css';
 import LikeAmountDisplay from '../LikesAmountDisplay/LikesAmountDisplay';
 import baseUrl from '../../../util/baseUrl';
 
+
+
+//Make one request to the backend - Is the UserID in the array of liked images? Yes - remove it, No - add it. Display array length as likes amount
+
+
 const LikeButton = (props) => {
     const [isLiked, setIsLiked] = useState(false);
     const [likes, setLikes] = useState(0);
@@ -33,7 +38,7 @@ const LikeButton = (props) => {
 
     const AddOrRemoveImageIdtoUserifLikedOrUnliked = async () => {
     try {
-        const response = await fetch(`${baseUrl}/api/auth/user/likes`, {
+        const response = await fetch(`${baseUrl}/api/auth/likes`, {
         method: 'put',
         headers: {
             'Content-Type': 'application/json',
