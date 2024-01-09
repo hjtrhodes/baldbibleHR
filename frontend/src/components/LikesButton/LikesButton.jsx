@@ -10,35 +10,32 @@ import baseUrl from '../../../util/baseUrl';
 
 
 const LikeButton = (props) => {
-    const [isLiked, setIsLiked] = useState(false);
-    const [likes, setLikes] = useState(0);
-    const [token, setToken] = useState(window.localStorage.getItem('token'));
 
-    const updateLikesOnServer = async (newLikes) => {
-        try {
-        const response = await fetch(`${baseUrl}/api/auth/image/${props.image_id}/likes`, {
-            method: 'put',
-            headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-            },
-            body: JSON.stringify({ likes : newLikes }),
-        });
+    // const checkIfUserHasLikedImage = async () => {
+    //     try {
+    //     const response = await fetch(`${baseUrl}/api/auth/image/${props.image_id}/likes`, {
+    //         method: 'put',
+    //         headers: {
+    //         'Content-Type': 'application/json',
+    //         'Authorization': `Bearer ${token}`,
+    //         },
+    //         body: JSON.stringify({ likes : newLikes }),
+    //     });
     
-        if (response.ok) {
-            const data = await response.json();
-            window.localStorage.setItem('token', data.token);
-        } else {
-            console.error('Failed to update likes');
-        }
-        } catch (error) {
-            console.error('Error in fetching or parsing data:', error);
-        }
-    };
+    //     if (response.ok) {
+    //         const data = await response.json();
+    //         window.localStorage.setItem('token', data.token);
+    //     } else {
+    //         console.error('Failed to update likes');
+    //     }
+    //     } catch (error) {
+    //         console.error('Error in fetching or parsing data:', error);
+    //     }
+    // };
 
-    const AddOrRemoveImageIdtoUserifLikedOrUnliked = async () => {
+    const checkIfUserHasLikedImage = async () => {
     try {
-        const response = await fetch(`${baseUrl}/api/auth/likes`, {
+        const response = await fetch(`${baseUrl}api/auth/${props.image_id}/likes`, {
         method: 'put',
         headers: {
             'Content-Type': 'application/json',

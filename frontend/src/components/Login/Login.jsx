@@ -32,6 +32,7 @@ const handleLoginSubmit = async (event) => {
       // GOOD NEWS.
         console.log("login successful");
         let data = await response.json();
+        console.log(data)
         window.localStorage.setItem("token", data.token);
         navigate('/');
     } else {
