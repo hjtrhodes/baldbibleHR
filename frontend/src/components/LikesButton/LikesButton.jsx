@@ -24,7 +24,7 @@ const LikeButton = (props) => {
                 throw new Error("User ID or token is missing, user not logged in");
             }
 
-            const response = await fetch(`${baseUrl}/api/images/${props.imageId}/likes`, {
+            const response = await fetch(`${baseUrl}/api/image/${props.imageId}/likes`, {
                 method: 'put',
                 headers: {
                     'Content-Type': 'application/json',

@@ -8,7 +8,7 @@ const LikeAmountDisplay = (props) => {
         try {
             const token = window.localStorage.getItem("token");
 
-            const response = await fetch(`${baseUrl}/api/images/${props.imageId}/likes`, {
+            const response = await fetch(`${baseUrl}/api/image/${props.imageId}/likes`, {
                 method: 'get',
                 headers: {
                     'Content-Type': 'application/json',

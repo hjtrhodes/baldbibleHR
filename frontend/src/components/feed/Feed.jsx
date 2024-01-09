@@ -14,7 +14,7 @@ const Feed = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`${baseUrl}/api/images/`, {
+        fetch(`${baseUrl}/api/image`, {
             method: 'GET',
         })
             .then(response => {

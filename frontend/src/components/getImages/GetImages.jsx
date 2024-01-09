@@ -8,7 +8,7 @@ const GetImages = ({ }) => {
 
   useEffect(() => {
     // if(token) {
-      fetch("http://localhost:8080/api/images", {
+      fetch("http://localhost:8080/api/image", {
         // headers: {
         //   'Authorization': `Bearer ${token}`
         // }
