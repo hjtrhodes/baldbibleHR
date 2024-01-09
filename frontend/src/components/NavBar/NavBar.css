@@ -1,14 +1,21 @@
 /* Updated styles for the link container */
 .nav {
-  
+  position: fixed; /* Make the navigation bar fixed */
+  top: 0; /* Stick it to the top of the viewport */
+  left: 0;
+  right: 0;
+  background-color: transparent; /* Add a background color as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a box shadow for a subtle lift */
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px;
 }
 
 .nav-link-container {
   display: flex;
-  gap: 0rem; /* Adjust the gap as needed */
+  gap: 1rem; /* Adjust the gap as needed */
   align-items: center;
 }
 
@@ -20,3 +27,8 @@
 .nav-link-container .nav-btn + .nav-btn {
   margin-left: 0.2rem; /* Adjust the margin as needed */
 }
+
+body {
+  padding-top: 120px; /* Adjust the padding to match the height of your navigation bar */
+}
+
