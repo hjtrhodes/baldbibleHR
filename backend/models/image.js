@@ -2,7 +2,7 @@ const mongoose = require('mongoose'); // import mongoose
 
 const photoSchema = mongoose.Schema({ // define a schema for things
   // description: { type: String, required: true }, // define a description property, which is a required string
-  userID: { type: String, required: false }, // define a userId property, which is a required string
+  userId: { type: String, required: false }, // define a userId property, which is a required string
   username: { type: String, required: true },
   imageURL: { type: String, required: true }, // define an imageUrl property, which is a required string
 });
