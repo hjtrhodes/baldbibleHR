@@ -6,6 +6,8 @@ import NavBar from './components/NavBar/NavBar';
 import SignupPage from './pages/Signup';
 import LoginPage from './pages/Login';
 import Upload from './pages/photo upload/upload';
+import Image from './components/Image/Image'
+import Feed from './components/feed/Feed';
 
 
 function App() {
@@ -17,10 +19,12 @@ function App() {
 {/* Any component put here will appear globally, for example the Navbar may go here. */}
       <NavBar navigate={useNavigate()} />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home navigate={useNavigate()}/>} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/upload" element={<Upload />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/feed" element={<Feed />} />
+            <Route path="/image" element={<Image />} />
 {/* All other Routes Go Here */}
 
           </Routes>
