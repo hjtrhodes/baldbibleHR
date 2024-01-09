@@ -61,6 +61,8 @@ const handleLogin = async (event) => {
         console.log("signup and login successful");
         let data = await response.json();
         window.localStorage.setItem("token", data.token);
+        window.localStorage.setItem("userId", data.userId);
+        window.localStorage.setItem("username", data.username);
         navigate('/');
     } else {
       // BAD NEWS.
