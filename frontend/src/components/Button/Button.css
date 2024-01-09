@@ -13,7 +13,7 @@
 .btn :before,
 .btn:after,
 .btn:before {
-  border: 0 solid;
+  border: transparent;
   box-sizing: border-box;
 }
 
