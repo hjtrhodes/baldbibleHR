@@ -7,8 +7,8 @@ const Upload = () => {
   const [file, setFile] = useState("");
   const [image, setImage] = useState("");
   const [uploadedIMG, setUpload] = useState("");
-  const userId = window.localStorage.get("userId")
-  const username = window.localStorage.get("username")
+  const userId = window.localStorage.getItem("userId")
+  const username = window.localStorage.getItem("username")
 
 
   useEffect(() => {
