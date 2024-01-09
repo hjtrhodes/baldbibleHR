@@ -8,9 +8,7 @@
     "start": "concurrently \"npm run backend\" \"cd ../frontend && npm run dev\"",
     "seed": "node ./seeds/seed.js",
     "start:test": "MONGO_URL='test' npm start"
-
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -18,7 +16,6 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "concurrently": "^8.2.2",
-    "cors": "^2.8.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.9.2",
