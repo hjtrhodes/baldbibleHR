@@ -4,6 +4,7 @@ const mongoose = require("mongoose"); // import mongoose module, to connect to M
 // const cors = require('cors'); // import cors module, to deal with the CORS policy
 const path = require("path"); // import path module, to deal with file paths
 const cloudinary = require("./cloudinary/cloudinary");
+const Image = require("./controllers/upload")
 
 const { password }  = require('./config');
 
@@ -14,9 +15,14 @@ const app = express();
 
 const cors = require("cors");
 const { error } = require("console");
-// app.use(cors()); // call the use method, which adds a middleware function to the middleware stack, to deal with the CORS policy
-const bodyParser = require("body-parser");
-app.use(bodyParser.json({ limit: "10mb" }));
+app.use(cors());
+// call the use method, which adds a middleware function to the middleware stack, to deal with the CORS policy
+// const bodyParser = require("body-parser");
+// app.use(bodyParser.json({ limit: "50mb" }));
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+// call the use method, which adds a middleware function to the middleware stack, to parse the request body
+// express.json() intercepts every request with json data content type, take the request  body and put it onto the request object as the body property.
 
 mongoose
   .connect(
@@ -33,11 +39,6 @@ mongoose
     console.error(error); // log the error to the console
   });
 
-app.use(cors());
-app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({ extended: true, limit: "50mb" }));
-// call the use method, which adds a middleware function to the middleware stack, to parse the request body
-// express.json() intercepts every request with json data content type, take the request  body and put it onto the request object as the body property.
 
 // The following code is executed for every incoming request
 // The three res.setHeader() methods set the response headers which allow the client to access the API and deal with the CORS policy. Cross Origin Resource Sharing (CORS) is a security mechanism which restricts HTTP requests made from scripts to resources in a different origin. An origin is a combination of a protocol, a domain name and a port number. For example, http://localhost:3000 is an origin. The CORS policy is enforced by the browser. The browser sends an OPTIONS request to the server, to check if the client is allowed to access the API. The server responds with the Access-Control-Allow-Origin header, which tells the browser if the client is allowed to access the API. If the client is allowed to access the API, the browser sends the actual request. The server responds with the requested data. If the client is not allowed to access the API, the browser does not send the actual request. Instead, it sends an error message to the console.
@@ -66,30 +67,32 @@ app.use("/api/auth", userRoutes); // call the use method, which adds a middlewar
 app.get("/api/health", (req, res) => {
   res.status(200).json({ message: "The server is running. All is good." });
 });
-app.post("/upload", async (req, res) => {
-  const { image } = req.body;
-  try {
-    const uploadedImage = await cloudinary.uploader.upload(image, {
-      upload_preset: "unsigned_upload",
-      allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfig", "webp"],
-    });
-    res.status(200).json(uploadedImage);
-    console.log(uploadedImage)
-  } catch (err) {
-    console.log(err);
-  }
-});
+// app.post("/upload", async (req, res) => {
+//   const { image } = req.body;
+//   try {
+//     const uploadedImage = await cloudinary.uploader.upload(image, {
+//       upload_preset: "unsigned_upload",
+//       allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfig", "webp"],
+//     });
+//     res.status(200).json(uploadedImage);
+//     console.log(uploadedImage)
+//     req.body.imageURL = uploadedImage.secure_url
+//     const NewUpload = new Image(req.body)
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
 
-app.post("/", async(req,res)=> {
-  const {image} = req.body;
-  cloudinary.uploader.upload(image,{ 
-    upload_preset: 'unsigned_upload',
-    public_id: `${username}avatar`,
-    allowed_formats: ['png', 'jpg', 'jpeg', 'svg', 'ico', 'jfig', 'webp' ]
-  },
-  function(error, result) {console.log(result); });
-  res.json("I have recieved your data")
-})
+// app.post("/", async(req,res)=> {
+//   const {image} = req.body;
+//   cloudinary.uploader.upload(image,{ 
+//     upload_preset: 'unsigned_upload',
+//     public_id: `${username}avatar`,
+//     allowed_formats: ['png', 'jpg', 'jpeg', 'svg', 'ico', 'jfig', 'webp' ]
+//   },
+//   function(error, result) {console.log(result); });
+//   res.json("I have recieved your data")
+// })
 
 
 module.exports = app;

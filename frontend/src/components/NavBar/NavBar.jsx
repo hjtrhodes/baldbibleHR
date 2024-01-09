@@ -20,7 +20,7 @@ const NavBar = ({ navigate }) => {
   const handleAddClick = () => {
     // Implement your logic for handling the Add button click
     // For example, navigate to the upload image page
-    navigate("/upload-image");
+    navigate("/upload");
   };
 
   console.log(token);
