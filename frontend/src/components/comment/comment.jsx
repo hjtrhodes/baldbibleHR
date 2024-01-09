@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Comments = ({ imageId }) => {
+const Comments = ({ imageId, imageSrc }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
 
   useEffect(() => {
     // Fetch existing comments for the image
+    console.log('Fetching comments for imageId:', imageId);
     axios.get(`/api/images/${imageId}/comments`)
-      .then(response => setComments(response.data))
+      .then(response => {
+      console.log('Comments:', response.data);
+      setComments(response.data);
+    })
       .catch(error => console.error('Error fetching comments:', error));
   }, [imageId]);
 
@@ -52,8 +56,9 @@ const Comments = ({ imageId }) => {
         </label>
         <button type="submit">Submit Comment</button>
       </form>
+      <img src={imageSrc} alt="Selected Image" />
     </div>
   );
 };
 
-export default Comments;
+export default Comments

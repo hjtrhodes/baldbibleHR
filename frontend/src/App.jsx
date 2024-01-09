@@ -6,6 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import SignupPage from './pages/Signup';
 import LoginPage from './pages/Login';
 import Image from './components/Image/Image'
+import Feed from './components/feed/Feed';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home navigate={useNavigate()}/>} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/feed" element={<Feed />} />
             <Route path="/image" element={<Image />} />
 {/* All other Routes Go Here */}
 

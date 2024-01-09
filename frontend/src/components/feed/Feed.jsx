@@ -5,6 +5,9 @@ import ImageListItem from '@mui/material/ImageListItem';
 import GetImages from '../getImages/GetImages';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Comments from '../comment/comment';
+
+
 
 const Feed = () => {
     const [images, setImages] = useState([]);
