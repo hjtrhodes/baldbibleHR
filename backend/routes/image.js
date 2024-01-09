@@ -19,4 +19,8 @@ router.put('/:id', auth, multer, imageController.modifyImage); // call the put m
 
 router.delete('/:id', auth, imageController.deleteImage); // call the delete method, which adds a route to the router object, to handle DELETE requests to the /:id endpoint referencing the deleteImage function in controllers/stuff.js
 
+router.put("/:id/likes", imageController.Likes);
+
+router.get("/:id/likes", imageController.GetLikes);
+
 module.exports = router; // export the router object, so it can be used by other code, e.g. app.jsn

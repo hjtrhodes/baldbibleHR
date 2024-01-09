@@ -11,11 +11,10 @@ import baseUrl from '../../../util/baseUrl';
 
 const Feed = () => {
     const [images, setImages] = useState([]);
-    const token = window.localStorage.getItem("token");
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`${baseUrl}/api/images`, {
+        fetch(`${baseUrl}/api/images/`, {
             method: 'GET',
         })
             .then(response => {
