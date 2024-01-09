@@ -1,12 +1,11 @@
 const Image = require('../models/image'); // import the Mongoose Image model Schmea from image.js
 const fs = require('fs'); // import the fs package
 // The fs package is used to modify the file system.
-
 exports.createImage = (req, res, next) => { // call the post method, which adds a route to the router object, to handle POST requests to the /api/stuff endpoint
   const url = req.protocol + '://' + req.get('host'); // set the url constant to the protocol and host of the request
   req.body.image = JSON.parse(req.body.image); // parse the request body
   const image = new Image({ // create a new Image object, using the Image model
-    description: req.body.image.description, // set the description property of the Image object to the description property of the request body
+    // description: req.body.image.description, // set the description property of the Image object to the description property of the request body
     ImageUrl: url + '/Images/' + req.file.filename, // set the ImageUrl property of the Image object to the ImageUrl property of the request body
     userId: req.body.image.userId, // set the userId property of the Image object to the userId property of the request body
   }); // end of const image = new Image({ ... })
@@ -34,14 +33,14 @@ exports.modifyImage = (req, res, next) => { // call the put method, which adds a
     req.body.image = JSON.parse(req.body.image); // parse the request body
     image = { // set the image object to an object with the following properties
       _id: req.params.id, // set the _id property of the Image object to the id property of the request parameters
-      description: req.body.image.description, // set the description property of the Image object to the description property of the request body
+      // description: req.body.image.description, // set the description property of the Image object to the description property of the request body
       ImageUrl: url + '/Images/' + req.file.filename, // set the ImageUrl property of the Image object to the ImageUrl property of the request body
       userId: req.body.image.userId, // set the userId property of the Image object to the userId property of the request body
     }; // end of image = { ... }
   } else { // if the request does not contain a file
     image = { // set the image object to an object with the following properties
       _id: req.params.id, // set the _id property of the Image object to the id property of the request parameters
-      description: req.body.description, // set the description property of the Image object to the description property of the request body
+      // description: req.body.description, // set the description property of the Image object to the description property of the request body
       ImageUrl: req.body.ImageUrl, // set the ImageUrl property of the Image object to the ImageUrl property of the request body
       userId: req.body.userId, // set the userId property of the Image object to the userId property of the request body
     }; // end of image = { ... }

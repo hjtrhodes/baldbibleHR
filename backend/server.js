@@ -1,5 +1,7 @@
 const http = require('http'); // import http module, to make our app an http server 
 const app = require('./app'); // import the app object, which is exported from app.js
+require('dotenv').config();
+const cloudinary = require('./cloudinary/cloudinary')
 
 const normalisePort = val => { // define a function to normalise the port number
   const port = parseInt(val, 10); // parse the port number as an integer
