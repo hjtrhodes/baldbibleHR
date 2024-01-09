@@ -1,5 +1,6 @@
 /* Updated styles for the link container */
 .nav {
+  
   display: flex;
   justify-content: space-between;
   align-items: center;

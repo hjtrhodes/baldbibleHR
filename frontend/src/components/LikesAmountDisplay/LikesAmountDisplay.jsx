@@ -2,41 +2,41 @@ import { useState, useEffect } from 'react';
 import baseUrl from '../../../util/baseUrl';
 
 const LikeAmountDisplay = (props) => {
-    const [token, setToken] = useState(window.localStorage.getItem('token'));
-    const [likes, setLikes] = useState(0);
+    const [likesAmount, setLikesAmount] = useState(0);
+
+    const getLikesAmount = async () => {
+        try {
+            const token = window.localStorage.getItem("token");
+
+            const response = await fetch(`${baseUrl}/api/images/${props.image_id}/likes`, {
+                method: 'get',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+
+            if (response.ok) {
+                const responseData = await response.json();
+                setLikesAmount(responseData.likes - 1);
+            } else {
+                console.error('Failed to get likes amount');
+            }
+        } catch (error) {
+            console.error('Error in fetching or parsing data:', error);
+        }
+    };
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                if (token) {
-                    const response = await fetch(`${baseUrl}api/auth/image/${props.image_id}/likes`, {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        window.localStorage.setItem("token", data.token);
-                        setToken(window.localStorage.getItem("token"));
-                        setLikes(data.likes);
-                    } else {
-                        console.error('Failed to fetch likes data');
-                    }
-                }
-            } catch (error) {
-                console.error('Error in fetching or parsing data:', error);
-            }
-        };
-
-        fetchData();
-    }, [token, props.image_id, props.likes]);
+        // Call the getLikesAmount function when the component mounts or when props.image_id or props.rerender changes
+        getLikesAmount();
+    }, [props.image_id, props.rerender]);
 
     return (
-        <div className='likes_amount'>
+        <div>
             <small>
                 <strong>
-                        {likes} likes
+                {likesAmount} {likesAmount === 1 ? 'like' : 'likes'}
                 </strong>
             </small>
         </div>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import LikeButton from '../LikesButton/LikesButton';
 import "./GetImages.css"
 
 
@@ -32,9 +31,9 @@ const GetImages = ({ }) => {
         {images.map(imgData => (
           <div key={imgData._id}>
             <img src={imgData.imageURL} className='image' />
-            <div className='likebutton'>
+            {/* <div className='likebutton'>
               <LikeButton image_id={imgData._id} />
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

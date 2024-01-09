@@ -34,6 +34,8 @@ const handleLoginSubmit = async (event) => {
         let data = await response.json();
         console.log(data)
         window.localStorage.setItem("token", data.token);
+        window.localStorage.setItem("userId", data.userId);
+        window.localStorage.setItem("username", data.username);
         navigate('/');
     } else {
       // BAD NEWS.
