@@ -3,7 +3,7 @@ const cloudinary = require('../cloudinary/cloudinary')
 
 const ImageController = {
   Upload: async (req, res) => {
-    const { image } = req.body;
+    const { image, username, userId } = req.body;
     try {
       const uploadedImage = await cloudinary.uploader.upload(image, {
         upload_preset: "unsigned_upload",

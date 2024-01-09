@@ -8,6 +8,7 @@ const Upload = () => {
   const [image, setImage] = useState("");
   const [uploadedIMG, setUpload] = useState("");
   const userId = window.localStorage.get("userId")
+  const username = window.localStorage.get("username")
 
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const Upload = () => {
     try {
       e.preventDefault();
       const result = await axios.post(`${baseUrl}/api/image/upload`, {
-        image,
+        image, userId, username
       });
       const uploadedIMG = result.data.public_id;
       window.location.reload(); // set this to navigate to homepage plus image uploaded pop up box.
