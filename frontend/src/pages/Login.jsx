@@ -8,7 +8,6 @@ const LoginPage = () => {
         <>
         <div>
             <Login />
-            <GetImages />
         </div>
         </>
     )

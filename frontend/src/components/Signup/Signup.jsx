@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./Signup.css"
-import Button from '../Button/Button';
 import baseUrl from '../../../util/baseUrl';
 import Button from "../Button/Button.jsx";
 
