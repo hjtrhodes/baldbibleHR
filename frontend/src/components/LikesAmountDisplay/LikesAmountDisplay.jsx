@@ -8,7 +8,7 @@ const LikeAmountDisplay = (props) => {
         try {
             const token = window.localStorage.getItem("token");
 
-            const response = await fetch(`${baseUrl}/api/images/${props.image_id}/likes`, {
+            const response = await fetch(`${baseUrl}/api/images/${props.imageId}/likes`, {
                 method: 'get',
                 headers: {
                     'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ const LikeAmountDisplay = (props) => {
 
             if (response.ok) {
                 const responseData = await response.json();
-                setLikesAmount(responseData.likes - 1);
+                setLikesAmount(responseData.likes);
             } else {
                 console.error('Failed to get likes amount');
             }
@@ -30,7 +30,7 @@ const LikeAmountDisplay = (props) => {
     useEffect(() => {
         // Call the getLikesAmount function when the component mounts or when props.image_id or props.rerender changes
         getLikesAmount();
-    }, [props.image_id, props.rerender]);
+    }, [props.imageId, props.rerender]);
 
     return (
         <div>

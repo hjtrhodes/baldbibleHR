@@ -26,7 +26,6 @@ const Feed = () => {
     
         // } 
     }, [])
-    console.log(images);
 
     const showImage = (event, imageId) => {
         const imageSrc = event.target.src;
@@ -49,14 +48,13 @@ const Feed = () => {
                 style={{ height: `${item.height}px` // this will change the height of the image based on likes/upvotes
                     }}
                         
-                onClick={showImage}
+                    onClick={(event) => showImage(event, item._id)}
                 />
             </ImageListItem>
             ))}
         </ImageList>
         {/* <GetImages /> */}
         </Box>
-        <div><GetImages /></div>
         </div>
     );
     }

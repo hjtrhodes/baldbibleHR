@@ -24,7 +24,7 @@ const LikeButton = (props) => {
                 throw new Error("User ID or token is missing, user not logged in");
             }
 
-            const response = await fetch(`${baseUrl}/api/images/${props.image_id}/likes`, {
+            const response = await fetch(`${baseUrl}/api/images/${props.imageId}/likes`, {
                 method: 'put',
                 headers: {
                     'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const LikeButton = (props) => {
                     'userId': userId,
                 },
                 body: JSON.stringify({ 
-                    imageId: props.image_id,
+                    imageId: props.imageId,
                     userId: userId 
                 }),
             });
@@ -42,6 +42,8 @@ const LikeButton = (props) => {
                 setReRender(responseData.message);
             } else {
                 console.error('Failed to access userID array');
+                console.log(props.imageId)
+                console.log(userId)
             }
         } catch (error) {
             console.error('Error in fetching or parsing data:', error);
@@ -66,7 +68,7 @@ const LikeButton = (props) => {
             >
             <img src={likebutton} alt='Like' />
             </button><br />
-            <LikeAmountDisplay image_id={ props.image_id } rerender={ reRender } />
+            <LikeAmountDisplay imageId={ props.imageId } rerender={ reRender } />
         </form>
     </>
     );
