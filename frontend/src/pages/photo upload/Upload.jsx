@@ -1,11 +1,14 @@
 import react from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import baseUrl from '../../../util/baseUrl';
 
 const Upload = () => {
   const [file, setFile] = useState("");
   const [image, setImage] = useState("");
   const [uploadedIMG, setUpload] = useState("");
+  const userId = window.localStorage.get("userId")
+
 
   useEffect(() => {
     console.log(image);
@@ -28,8 +31,8 @@ const Upload = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const result = await axios.post("http://localhost:8080/upload", {
-        image: image,
+      const result = await axios.post(`${baseUrl}/api/image/upload`, {
+        image,
       });
       const uploadedIMG = result.data.public_id;
       window.location.reload(); // set this to navigate to homepage plus image uploaded pop up box.

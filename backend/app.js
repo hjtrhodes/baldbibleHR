@@ -4,6 +4,7 @@ const mongoose = require("mongoose"); // import mongoose module, to connect to M
 // const cors = require('cors'); // import cors module, to deal with the CORS policy
 const path = require("path"); // import path module, to deal with file paths
 const cloudinary = require("./cloudinary/cloudinary");
+const Image = require("./controllers/upload")
 
 const { password }  = require('./config');
 
@@ -66,30 +67,32 @@ app.use("/api/auth", userRoutes); // call the use method, which adds a middlewar
 app.get("/api/health", (req, res) => {
   res.status(200).json({ message: "The server is running. All is good." });
 });
-app.post("/upload", async (req, res) => {
-  const { image } = req.body;
-  try {
-    const uploadedImage = await cloudinary.uploader.upload(image, {
-      upload_preset: "unsigned_upload",
-      allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfig", "webp"],
-    });
-    res.status(200).json(uploadedImage);
-    console.log(uploadedImage)
-  } catch (err) {
-    console.log(err);
-  }
-});
+// app.post("/upload", async (req, res) => {
+//   const { image } = req.body;
+//   try {
+//     const uploadedImage = await cloudinary.uploader.upload(image, {
+//       upload_preset: "unsigned_upload",
+//       allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfig", "webp"],
+//     });
+//     res.status(200).json(uploadedImage);
+//     console.log(uploadedImage)
+//     req.body.imageURL = uploadedImage.secure_url
+//     const NewUpload = new Image(req.body)
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
 
-app.post("/", async(req,res)=> {
-  const {image} = req.body;
-  cloudinary.uploader.upload(image,{ 
-    upload_preset: 'unsigned_upload',
-    public_id: `${username}avatar`,
-    allowed_formats: ['png', 'jpg', 'jpeg', 'svg', 'ico', 'jfig', 'webp' ]
-  },
-  function(error, result) {console.log(result); });
-  res.json("I have recieved your data")
-})
+// app.post("/", async(req,res)=> {
+//   const {image} = req.body;
+//   cloudinary.uploader.upload(image,{ 
+//     upload_preset: 'unsigned_upload',
+//     public_id: `${username}avatar`,
+//     allowed_formats: ['png', 'jpg', 'jpeg', 'svg', 'ico', 'jfig', 'webp' ]
+//   },
+//   function(error, result) {console.log(result); });
+//   res.json("I have recieved your data")
+// })
 
 
 module.exports = app;
