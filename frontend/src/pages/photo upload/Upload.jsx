@@ -44,7 +44,8 @@ const Upload = ({ navigate }) => {
         username,
       });
       const uploadedIMG = result.data.public_id;
-      window.location.reload(); // set this to navigate to homepage plus image uploaded pop up box.
+      navigate('/') 
+      alert("image uploaded sucsessfully") // set this to navigate to homepage plus image uploaded pop up box.
     } catch (err) {
       console.log(err);
     }
