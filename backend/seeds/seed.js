@@ -36,7 +36,7 @@ mongoose.connect(mongoDbUrl, {
 // remove all documents from the databse:
 const resetDB = async () => {
   await User.deleteMany({});
-  await Image.deleteMany({});
+  // await Image.deleteMany({});
 };
 
 //insert users to the DB:
@@ -61,7 +61,6 @@ const seedDB = async () => {
   try {
     await resetDB();
     await insertUsers();
-    await insertImages();
     console.log("Seed completed successfully.");
   } catch (error) {
     console.error("Seed failed:", error);

@@ -18,7 +18,7 @@ const ImageController = {
         userId: userId,
         username: username,
         imageUrl: imageUrl,
-        dateAdded: dateAdded // Corrected property name to match the schema
+        dateAdded: dateAdded 
       });
 
       // Save the newImage to the database
