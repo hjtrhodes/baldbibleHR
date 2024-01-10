@@ -16,7 +16,7 @@ const ImageController = {
       const newImage = new Image({
         userId: userId,
         username: username,
-        imageURL: imageUrl, // Corrected property name to match the schema
+        imageUrl: imageUrl, // Corrected property name to match the schema
       });
 
       // Save the newImage to the database
