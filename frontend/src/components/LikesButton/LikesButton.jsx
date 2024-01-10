@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './likeButton.css';
 import LikeAmountDisplay from '../LikesAmountDisplay/LikesAmountDisplay';
 import baseUrl from '../../../util/baseUrl';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -10,7 +11,7 @@ import baseUrl from '../../../util/baseUrl';
 
 const LikeButton = (props) => {
     const [reRender, setReRender] = useState("");
-
+    const navigate = useNavigate();
     const checkIfUserHasLikedImage = async () => {
         try {
             const userId = window.localStorage.getItem("userId");
@@ -48,7 +49,18 @@ const LikeButton = (props) => {
         } catch (error) {
             console.error('Error in fetching or parsing data:', error);
             // Redirect to the login page
-            window.location.href = `/login`;
+            // window.location.href = `/login`;
+            const userDecision = window.confirm(
+              'You need to be logged in to like the image. Do you want to go to the login page?'
+          );
+
+          if (userDecision) {
+              // If the user clicks OK, navigate to the login page
+              navigate('/login');
+          } else {
+              // If the user clicks Cancel, you can handle it here (e.g., do nothing or show a message)
+              console.log('User decided to stay on the post page without liking the image.');
+          }
         }
     };
 
