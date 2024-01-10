@@ -1,0 +1,13 @@
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5rem; /* Adjust as needed */
+}
+
+.btn-primary {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

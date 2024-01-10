@@ -2,6 +2,7 @@ import react from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import baseUrl from "../../../util/baseUrl";
+import "./Upload.css"
 
 const Upload = ({ navigate }) => {
   const [file, setFile] = useState("");
@@ -50,24 +51,26 @@ const Upload = ({ navigate }) => {
       console.log(err);
     }
   };
-    return (
-      <>
-        <div className="container mt-5 align-items-center justify-content-center">
-          <form onSubmit={(e) => handleSubmit(e)}>
-            <label htmlFor="fileInput"> Upload your photo here</label>
-            <input
-              type="file"
-              id="fileInput"
-              onChange={(e) => handleChange(e)}
-              required
-              accept="image/png, image/jpeg, image/jpg, image/jfif"
-            />
-            <button className="btn btn-primary">submit </button>
-          </form>
-        </div>
-        <img src={image} alt="" />
-      </>
-    );
+  return (
+    <div className="center-container">
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <strong>
+        <label htmlFor="fileInput"><h2>Upload your photo here</h2></label>
+        </strong>
+        <input
+          classname='input-btn'
+          type="file"
+          id="fileInput"
+          onChange={(e) => handleChange(e)}
+          required
+          accept="image/png, image/jpeg, image/jpg, image/jfif"
+        />
+        <button className="btn btn-primary">Submit</button>
+      </form>
+      <img src={image} alt="" />
+    </div>
+  );
+  
 };
 
 export default Upload;
