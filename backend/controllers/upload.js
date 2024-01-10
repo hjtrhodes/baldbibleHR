@@ -1,5 +1,5 @@
-const Image = require('../models/image');
-const cloudinary = require('../cloudinary/cloudinary')
+const Image = require("../models/image");
+const cloudinary = require("../cloudinary/cloudinary");
 
 const ImageController = {
   Upload: async (req, res) => {
@@ -9,7 +9,7 @@ const ImageController = {
         upload_preset: "unsigned_upload",
         allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfig", "webp"],
       });
-      console.log(uploadedImage)
+      console.log(uploadedImage);
       const imageUrl = uploadedImage.secure_url;
 
       // Create a new instance of the Image model
@@ -22,10 +22,10 @@ const ImageController = {
       // Save the newImage to the database
       await newImage.save();
 
-      res.status(201).json({ message: 'Image saved successfully!' });
+      res.status(201).json({ message: "Image saved successfully!" });
     } catch (err) {
       console.error(err);
-      res.status(500).json({ message: 'Internal Server Error' });
+      res.status(500).json({ message: "Internal Server Error" });
     }
   },
 };
@@ -39,8 +39,7 @@ module.exports = ImageController;
 //     console.log(Image);
 //     }
 
-module.exports = ImageController
-
+module.exports = ImageController;
 
 // exports.addImage = (req, res, next) => {
 //   console.log('you have reached the addImage controller');
