@@ -24,6 +24,12 @@ useEffect(() => {
 const handleSignUpSubmit = async (event) => {
     event.preventDefault();
 
+    // Check if any required field is empty
+    if (!firstName || !lastName || !username || !signUpEmail || !signUpPassword) {
+        setsignupStatus("Please fill in all required fields.");
+        return;
+    }
+    
     // Step 1: Sign Up
     let signUpResponse = await fetch(`${baseUrl}/api/auth/signup`, {
         method: 'POST',
