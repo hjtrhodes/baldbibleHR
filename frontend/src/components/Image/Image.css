@@ -1,11 +1,17 @@
 .image {
     margin: 10px;
     border-radius: 15px;
+    transition: transform 0.3s; /* Add a smooth transition effect */
+}
+
+.image:hover {
+    transform: scale(1.03); /* Enlarge the image by 10% on hover */
 }
 
 #image-list {
     margin-right: 10px;
 }
+
 .image-column {
     margin: 5px;
 }
