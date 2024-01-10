@@ -114,10 +114,10 @@ const handleUserNameChange = (event) => {
             {signupStatus && (
             <div className="error-message">
 
-                <p >{signupStatus}</p>
+                <p id="signup-confirmation" >{signupStatus}</p>
             </div>
             )}
-            <Button id="sign-up-submit" type="submit" aria-label="Signup" className="btn">Sign Up</Button>
+            <Button id="sign-up-submit" type="submit" aria-label="Signup" >Sign Up</Button>
             </form></div>
     <h2>&nbsp;</h2>
     </div>

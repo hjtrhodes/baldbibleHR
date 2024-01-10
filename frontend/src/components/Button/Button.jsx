@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import './Button.css';
 
 const Button = ({
+  id,
   children,
   ariaLabel = 'button',
   className = 'btn',
@@ -10,7 +11,7 @@ const Button = ({
   
   
   return (
-    <button aria-label={ariaLabel} className={className} onClick={onClick} >
+    <button id={id} aria-label={ariaLabel} className={className} onClick={onClick} >
       <span>{children}</span>
     </button>
   );
@@ -21,6 +22,7 @@ Button.propTypes = {
   ariaLabel: PropTypes.string,
   className: PropTypes.string,
   onClick: PropTypes.func,
+  id: PropTypes.string,
 }
 
 export default Button;
