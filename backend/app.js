@@ -57,6 +57,7 @@ app.use((req, res, next) => {
     "GET, POST, PUT, DELETE, PATCH, OPTIONS",
   );
   // call the next function which will be executed in the middleware stack
+  res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
 

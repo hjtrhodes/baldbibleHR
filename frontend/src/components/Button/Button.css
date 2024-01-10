@@ -98,7 +98,19 @@
   --progress: 0;
 }
 
+.nav-btn-signup,
+.nav-btn-login {
+  background-color: #000; /* Default color */
+  color: #fff;
+}
+
+.nav-btn-signup.active,
+.nav-btn-login.active {
+  background-color: grey; /* Change to grey when on the respective page */
+  color: #666; /* Change text color to grey */
+  transform: none; /* Remove transform effect */
+}
+
 .home-btn {
   font-size: 2.5vw;
 }
-

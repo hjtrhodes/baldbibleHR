@@ -1,16 +1,17 @@
-// import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Button from '../Button/Button';
 import './NavBar.css';
 
 const NavBar = ({ navigate }) => {
-  const token = window.localStorage.getItem("token"); // getting token from local storage
+  const token = window.localStorage.getItem("token");
   const username = window.localStorage.getItem("username");
-  // const token = true;
+  const location = useLocation();
 
   const logout = () => {
-    window.localStorage.clear(); //clearing all items from local storage
-    window.localStorage.removeItem('token'); //specifically removing the 'token' item
-    window.localStorage.removeItem('username'); 
+    window.localStorage.clear();
+    window.localStorage.removeItem('token');
+    window.localStorage.removeItem('username');
   };
 
   const handleLogOut = () => {
@@ -18,12 +19,15 @@ const NavBar = ({ navigate }) => {
     navigate('/');
   };
 
-    // Placeholder function for handling the Add button click
+  // Placeholder function for handling the Add button click
   const handleAddClick = () => {
-    // Implement your logic for handling the Add button click
-    // For example, navigate to the upload image page
     navigate("/upload");
   };
+
+  useEffect(() => {
+    // Store the current page in local storage
+    window.localStorage.setItem('currentPage', location.pathname);
+  }, [location.pathname]);
 
   console.log(token);
   console.log('username:', username);
@@ -49,12 +53,14 @@ const NavBar = ({ navigate }) => {
             <Button
               ariaLabel='Navigate to Sign Up'
               onClick={() => navigate("/Signup")}
+              className={`btn nav-btn-signup ${location.pathname === "/Signup" ? 'active' : ''}`}
             >
               Sign Up
             </Button>
             <Button
-              ariaLabel='Navigate to Sign Up'
+              ariaLabel='Navigate to Login'
               onClick={() => navigate("/Login")}
+              className={`btn nav-btn-login ${location.pathname === "/Login" ? 'active' : ''}`}
             >
               Log In
             </Button>
@@ -67,12 +73,14 @@ const NavBar = ({ navigate }) => {
             <Button
               ariaLabel='Log out current user'
               onClick={handleLogOut}
+              className="btn"
             >
               Log Out
             </Button>
             <Button
               ariaLabel='Add an image'
               onClick={handleAddClick}
+              className="btn"
             >
               Upload Image
             </Button>
@@ -83,10 +91,7 @@ const NavBar = ({ navigate }) => {
   );
 };
 
-
 export default NavBar;
-
-
 
 
 

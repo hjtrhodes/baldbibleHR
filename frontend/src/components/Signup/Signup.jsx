@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./Signup.css"
 import baseUrl from '../../../util/baseUrl';
+import Button from "../Button/Button.jsx";
 
 const Signup = () => {
     // For Signup
@@ -23,6 +24,12 @@ useEffect(() => {
 const handleSignUpSubmit = async (event) => {
     event.preventDefault();
 
+    // Check if any required field is empty
+    if (!firstName || !lastName || !username || !signUpEmail || !signUpPassword) {
+        setsignupStatus("Please fill in all required fields.");
+        return;
+    }
+    
     // Step 1: Sign Up
     let signUpResponse = await fetch(`${baseUrl}/api/auth/signup`, {
         method: 'POST',
@@ -92,7 +99,11 @@ const handleUserNameChange = (event) => {
 
     return (
     <>
-        <div className="form-container-sign-up-container">
+    <div className="container">
+    <div className="top"></div>
+    <div className="bottom"></div>
+    <div className="center">
+        <div className='signupform'>
             <form onSubmit={handleSignUpSubmit}>
             <h1 >Create Account</h1>
             <input id="first-name" type="text" placeholder="First Name" value={ firstName } onChange={handleFirstNameChange} />
@@ -106,9 +117,13 @@ const handleUserNameChange = (event) => {
                 <p >{signupStatus}</p>
             </div>
             )}
-            <button id="sign-up-submit" type="submit">Sign Up</button>
-            </form>
-        </div>
+            <Button id="sign-up-submit" type="submit" aria-label="Signup" className="btn">Sign Up</Button>
+            </form></div>
+    <h2>&nbsp;</h2>
+    </div>
+    </div>
+        
+
 
         </>
 );
