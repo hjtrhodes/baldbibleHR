@@ -6,6 +6,7 @@ const photoSchema = mongoose.Schema({
   imageUrl: { type: String }, // define an imageUrl property, which is a required string
   userId: { type: String }, // define a userId property, which is a required string
   username: { type: String },
+  dateAdded: { type: String },
   likedByUser: { type: [String], default: [] },
 });
 
