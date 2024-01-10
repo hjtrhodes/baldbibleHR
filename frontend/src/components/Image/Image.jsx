@@ -2,10 +2,8 @@ import React from 'react';
 import { useSearchParams } from "react-router-dom";
 import Comments from "../comment/comment";
 import './Image.css';
-
-const Image = () => {
-
 import LikeButton from '../LikesButton/LikesButton';
+
 
 const Image = (props) => {
     const [searchParams] = useSearchParams();
