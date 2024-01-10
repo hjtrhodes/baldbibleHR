@@ -75,3 +75,57 @@ exports.getAllStuff = (req, res) => { // call the get method, which adds a route
     .then(images => res.status(200).json(images)) // call the then method, which adds a callback function to the promise, to handle the success case
     .catch(error => res.status(400).json({ error: error })); // call the catch method, which adds a callback function to the promise, to handle the failure case
 }
+
+
+exports.Likes = async (req, res) => {
+  const imageId = req.params.id;
+  const userId = req.body.userId;
+
+  try {
+    // Find the image by ID
+    const image = await Image.findById(imageId);
+
+    if (!image) {
+      return res.status(404).json({ message: 'Image not found' });
+    }
+  
+  // Check if the user has already liked the image
+  const likedByUserIndex = image.likedByUser.indexOf(userId);
+  console.log(imageId, userId)
+  if (likedByUserIndex === -1) {
+    // If not found, add the user ID to the likedByUser array
+    image.likedByUser.push(userId);
+  } else {
+    // If found, remove the user ID from the likedByUser array
+    image.likedByUser.splice(likedByUserIndex, 1);
+  }
+      // Save the updated image
+      const updatedImage = await image.save();
+  
+      // Return the appropriate response
+      const message = likedByUserIndex === -1 ? 'Like added successfully' : 'Like removed successfully';
+  
+      res.status(201).json({ message, updatedImage });
+    } catch (err) {
+      console.error('Error updating likedByUser:', err);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  };
+
+  exports.GetLikes = async (req, res) => {
+    try {
+      const imageId = req.params.id;
+      const image = await Image.findById(imageId);
+  
+      if (!image) {
+        return res.status(404).json({ error: 'Image not found' });
+      }
+  
+      const likes = image.likedByUser.length;
+      
+      res.status(200).json({ likes });
+    } catch (err) {
+      console.error('Error retrieving image likes:', err);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  };

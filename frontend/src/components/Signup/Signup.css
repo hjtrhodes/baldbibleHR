@@ -1,0 +1,109 @@
+*,*:before,*:after{box-sizing:border-box}
+
+.container{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+
+&:hover,&:active{
+    .top, .bottom{
+    &:before, &:after{
+        margin-left: 350px;
+        transform-origin: -350px 50%;
+        transition-delay:0s;
+    }
+    }
+    
+    .center{
+    opacity:1;
+    transition-delay:0.2s;
+    }
+}
+}
+
+.top, .bottom{
+  &:before, &:after{
+    content:'';
+    display:block;
+    position:absolute;
+    width:200vmax;
+    height:200vmax;
+    top:50%;left:50%;
+    margin-top:-100vmax;
+    transform-origin: 0 50%;
+    transition:all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+    z-index:10;
+    opacity:0.65;
+    transition-delay:0.2s;
+  }
+}
+
+.top{
+  &:before{transform:rotate(45deg);background: #d8d1d1;}
+  &:after{transform:rotate(135deg);background: #4b4949;;}
+}
+
+.bottom{
+  &:before{transform:rotate(-45deg);background: #7a7676;;}
+  &:after{transform:rotate(-135deg);background: #b0adad;;}
+}
+
+.center{
+  position:absolute;
+  width:400px;
+  height:400px;
+  top:50%;left:50%;
+  margin-left:-200px;
+  margin-top:-200px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:20px;
+  opacity:0;
+  transition:all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+  transition-delay:0s;
+  color: black;
+  
+  input{
+    width:100%;
+    padding:15px;
+    margin:5px;
+    border-radius:1px;
+    border: 1px solid #888;
+    font-family:inherit;
+  }
+}
+
+.signupform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .signupform form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .signupform h1 {
+    margin-bottom: 20px;
+  }
+  
+  .signupform input {
+    margin-bottom: 15px; /* Increase margin for spacing */
+    padding: 15px; /* Increase padding for input fields */
+    border: 2px solid #ccc; /* Increase border thickness for input fields */
+    border-radius: 8px; /* Increase border-radius for rounded edges */
+    font-size: 20px;
+    width: 100%;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
