@@ -20,11 +20,11 @@ function App() {
       <NavBar navigate={useNavigate()} />
           <Routes>
             <Route path="/" element={<Home navigate={useNavigate()}/>} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/upload" element={<Upload />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/feed" element={<Feed />} />
-            <Route path="/image" element={<Image />} />
+            <Route path="/signup" element={<SignupPage navigate={useNavigate()}/>} />
+            <Route path="/upload" element={<Upload navigate={useNavigate()}/>} />
+            <Route path="/login" element={<LoginPage navigate={useNavigate()}/>} />
+            <Route path="/feed" element={<Feed navigate={useNavigate()}/>} />
+            <Route path="/image" element={<Image navigate={useNavigate()}/>} />
 {/* All other Routes Go Here */}
 
           </Routes>

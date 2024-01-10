@@ -15,6 +15,12 @@ const Upload = ({ navigate }) => {
     console.log(image);
   }, [image]);
 
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
+
   const previewFiles = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -43,7 +49,6 @@ const Upload = ({ navigate }) => {
       console.log(err);
     }
   };
-  if (token) {
     return (
       <>
         <div className="container mt-5 align-items-center justify-content-center">
@@ -62,9 +67,6 @@ const Upload = ({ navigate }) => {
         <img src={image} alt="" />
       </>
     );
-  } else {
-    navigate("/");
-  }
 };
 
 export default Upload;
