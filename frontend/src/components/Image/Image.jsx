@@ -12,10 +12,10 @@ const Image = (props) => {
 
     return (
         <>
-            <Comments imageId={imageId} imageSrc={imageSrc} />
             <img src={imageSrc} alt="Selected Image" className='indvpageimage'/>
             <div>
                 <LikeButton imageId={imageId} />
+                <Comments imageId={imageId} imageSrc={imageSrc}/>
             </div>
         </>
     );

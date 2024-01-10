@@ -51,16 +51,16 @@ const LikeButton = (props) => {
             // Redirect to the login page
             // window.location.href = `/login`;
             const userDecision = window.confirm(
-              'You need to be logged in to like the image. Do you want to go to the login page?'
-          );
+            'You need to be logged in to like the image. Do you want to go to the login page?'
+        );
 
-          if (userDecision) {
+        if (userDecision) {
               // If the user clicks OK, navigate to the login page
-              navigate('/login');
-          } else {
+            navigate('/login');
+        } else {
               // If the user clicks Cancel, you can handle it here (e.g., do nothing or show a message)
-              console.log('User decided to stay on the post page without liking the image.');
-          }
+            console.log('User decided to stay on the post page without liking the image.');
+        }
         }
     };
 

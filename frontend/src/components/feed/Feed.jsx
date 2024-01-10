@@ -29,31 +29,29 @@ const Feed = () => {
       });
   }, []);
 
-    useEffect(() => {
-        fetch("http://localhost:8080/api/images", {
-        })
-            .then(response => response.json())
-            .then(data => {
-    
-            setImages(data);
-            })
-    
-        // } 
-    }, [])
-    
+  useEffect(() => {
+    fetch("http://localhost:8080/api/images", {})
+      .then((response) => response.json())
+      .then((data) => {
+        // Reverse the order of images here
+        setImages(data.reverse());
+      })
+      .catch((error) => {
+        console.error("Error fetching images:", error.message);
+      });
+  }, []);
+
   const showImage = (event, imageId) => {
     const imageSrc = event.target.src;
     navigate(`/image?imageSrc=${imageSrc}&imageId=${imageId}`);
   };
+
   return (
     <div id="image-layout-outer-box" className="image-layout">
-      <Box
-        id="image-layout-inner-box"
-        sx={{ width: "400", overflowy: "scroll" }}
-      >
+      <Box id="image-layout-inner-box" sx={{ width: "400", overflowy: "scroll" }}>
         <ImageList className="image-list" id="image-list" variant="masonry" cols={3} gap={0}>
           {images.map((item) => (
-            <ImageListItem key={item._id} id={`image-${item.img}`}className="image-column">
+            <ImageListItem key={item._id} id={`image-${item.img}`} className="image-column">
               <img
                 src={`${item.imageUrl}`}
                 alt={item.title}
@@ -72,3 +70,4 @@ const Feed = () => {
 };
 
 export default Feed;
+
