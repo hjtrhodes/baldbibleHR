@@ -4,37 +4,63 @@ import { formatDistanceToNow } from 'date-fns'; // Import the necessary function
 import Button from '../Button/Button';
 import './comment.css'; // Import your CSS file
 
+const Modal = ({ closeModal, comments }) => (
+  <div className="modal-overlay" onClick={closeModal}>
+    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="comments-list">
+        {comments.length === 0 ? (
+          <div className="comment">
+            <p className="comment-content">No comments yet.</p>
+          </div>
+        ) : (
+          comments.map((comment) => (
+            <div key={comment._id} className="comment">
+              <p className="comment-content">{comment.content}</p>
+              <p className="comment-time">
+                {formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true })}
+              </p>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  </div>
+);
+
 const Comments = ({ imageId }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
-  const [token, setToken] = useState(window.localStorage.getItem("token"));
-  const [showComments, setShowComments] = useState(false);
+  const [token, setToken] = useState(window.localStorage.getItem('token'));
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     // Fetch existing comments for the image
     console.log('Fetching comments for imageId:', imageId);
-    axios.get(`http://localhost:8080/api/images/${imageId}/comments`, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-      .then(response => {
+    axios
+      .get(`http://localhost:8080/api/images/${imageId}/comments`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
         console.log('Comments:', response);
         setComments(response.data || []); // Ensure comments is an array
       })
-      .catch(error => console.error('Error fetching comments:', error));
-  }, [imageId]);
+      .catch((error) => console.error('Error fetching comments:', error));
+  }, [imageId, token]);
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const token = window.localStorage.getItem("token");
+      const token = window.localStorage.getItem('token');
 
       // Check if the token is available
       if (!token) {
         // Token is missing, ask the user if they want to go to the login page
-        const goToLoginPage = window.confirm("You need to be logged in to add a comment. Do you want to go to the login page?");
+        const goToLoginPage = window.confirm(
+          'You need to be logged in to add a comment. Do you want to go to the login page?'
+        );
 
         if (goToLoginPage) {
           // Redirect to the login page
@@ -76,7 +102,11 @@ const Comments = ({ imageId }) => {
   };
 
   const handleShowComments = () => {
-    setShowComments(!showComments);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -95,27 +125,10 @@ const Comments = ({ imageId }) => {
           <Button type="submit">Add Comment</Button>
         </form>
         <br></br>
-        <Button type="submit" onClick={handleShowComments}>
-          {showComments ? 'Hide Comments' : 'Show Comments'}
+        <Button type="button" onClick={handleShowComments}>
+          Show Comments
         </Button>
-        {showComments && (
-          <div className="comments-list">
-            {comments.length === 0 ? (
-              <div className="comment">
-                <p className="comment-content">No comments yet.</p>
-              </div>
-            ) : (
-              comments.map((comment) => (
-                <div key={comment._id} className="comment">
-                  <p className="comment-content">{comment.content}</p>
-                  <p className="comment-time">
-                    {formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true })}
-                  </p>
-                </div>
-              ))
-            )}
-          </div>
-        )}
+        {showModal && <Modal closeModal={closeModal} comments={comments} />}
       </div>
     </div>
   );
