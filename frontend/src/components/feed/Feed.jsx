@@ -29,6 +29,18 @@ const Feed = () => {
       });
   }, []);
 
+    useEffect(() => {
+        fetch("http://localhost:8080/api/images", {
+        })
+            .then(response => response.json())
+            .then(data => {
+    
+            setImages(data);
+            })
+    
+        // } 
+    }, [])
+    
   const showImage = (event, imageId) => {
     const imageSrc = event.target.src;
     navigate(`/image?imageSrc=${imageSrc}&imageId=${imageId}`);

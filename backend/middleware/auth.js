@@ -9,11 +9,9 @@ module.exports = (req, res, next) => {
     const decodedToken = jwt.verify(token, "RANDOM_TOKEN_SECRET"); // verify the token with two arguments: the token, and the secret key used to generate the token
     const userId = decodedToken.userId; // get the userId from the decoded token
     req.auth = { userId: userId }; // set the auth property of the request to an object with a userId property
-    if (req.body.userId && req.body.userId !== userId) {
-      // if the request body contains a userId property, and it does not match the userId from the decoded token
-      throw "Invalid user ID"; // throw an error
-    } else {
-      // if the request body does not contain a userId property, OR it does and it matches the userId from the decoded token
+    if (req.body.userId && req.body.userId !== userId) { // if the request body contains a userId property, and it does not match the userId from the decoded token
+      throw 'Invalid user ID'; // throw an error
+    } else { req.body.userId = userId // if the request body does not contain a userId property, OR it does and it matches the userId from the decoded token
       next(); // all is in order SO, call the next function which will be executed in the middleware stack
     } // end of if (req.body.userId && req.body.userId !== userId) { ... } else { ... }
   } catch {
