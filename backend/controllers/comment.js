@@ -1,7 +1,6 @@
-const Comment = require('../models/comment');
-const Image = require('../models/image');
-const jwt = require('jsonwebtoken'); // import jsonwebtoken
-
+const Comment = require("../models/comment");
+const Image = require("../models/image");
+const jwt = require("jsonwebtoken"); // import jsonwebtoken
 
 exports.addComment = async (req, res, next) => {
   try {
@@ -11,7 +10,7 @@ exports.addComment = async (req, res, next) => {
     // Check if the image exists
     const image = await Image.findById(imageId);
     if (!image) {
-      return res.status(404).json({ error: 'Image not found' });
+      return res.status(404).json({ error: "Image not found" });
     }
 
     const comment = new Comment({
@@ -22,10 +21,8 @@ exports.addComment = async (req, res, next) => {
 
     await comment.save();
 
-    res.status(201).json({ message: 'Comment added successfully!' });
+    res.status(201).json({ message: "Comment added successfully!" });
   } catch (error) {
     res.status(400).json({ error });
   }
 };
-
-
