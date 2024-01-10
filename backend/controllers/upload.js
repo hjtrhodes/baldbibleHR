@@ -11,12 +11,14 @@ const ImageController = {
       });
       console.log(uploadedImage);
       const imageUrl = uploadedImage.secure_url;
+      const dateAdded = uploadedImage.created_at;
 
       // Create a new instance of the Image model
       const newImage = new Image({
         userId: userId,
         username: username,
-        imageUrl: imageUrl, // Corrected property name to match the schema
+        imageUrl: imageUrl,
+        dateAdded: dateAdded // Corrected property name to match the schema
       });
 
       // Save the newImage to the database
