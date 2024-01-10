@@ -6,7 +6,8 @@ const path = require("path"); // import path module, to deal with file paths
 const cloudinary = require("./cloudinary/cloudinary");
 const Image = require("./controllers/upload")
 
-const { password }  = require('./config');
+const { password } = require('./config');
+const dbName = process.env.MONGO_URL || 'baldbible';
 
 const imageRoutes = require('./routes/image'); // import the router object, which is exported from stuff.js
 const userRoutes = require('./routes/user'); // import the router object, which is exported from user.js
@@ -26,7 +27,7 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
 mongoose
   .connect(
-    `mongodb+srv://team3-baldbible:${password}@bald-bible-database.vqxy3e3.mongodb.net/baldbible?retryWrites=true&w=majority`,
+    `mongodb+srv://team3-baldbible:${password}@bald-bible-database.vqxy3e3.mongodb.net/${dbName}?retryWrites=true&w=majority`,
   )
 
   .then(() => {
