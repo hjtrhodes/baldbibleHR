@@ -60,6 +60,7 @@ const LikeButton = (props) => {
 
     return (
     <>
+    <div className='likescontainer'>
         <form onSubmit={handleSubmitLikes}>
             <button
             className='likeButton'
@@ -67,10 +68,12 @@ const LikeButton = (props) => {
             onClick={handleSubmitLikes}
             >
             <img src={likebutton} alt='Like' />
-            </button><br />
-            <LikeAmountDisplay imageId={ props.imageId } rerender={ reRender } />
+            </button>
         </form>
-    </>
+    
+        <LikeAmountDisplay className='likeamount' imageId={ props.imageId } rerender={ reRender } />
+        </div>
+        </>
     );
 };
 
