@@ -41,7 +41,7 @@ const Feed = () => {
       >
         <ImageList id="image-list" variant="masonry" cols={3} gap={0}>
           {images.map((item) => (
-            <ImageListItem key={item._id} id={`image-${item.img}`}>
+            <ImageListItem key={item._id} id={`image-${item.img}`}className="image-column">
               <img
                 src={`${item.imageUrl}`}
                 alt={item.title}
@@ -49,7 +49,7 @@ const Feed = () => {
                 height={item.height}
                 loading="lazy"
                 style={{ height: `${item.height}px` }}
-                onClick={(event) => showImage(event, item._id)}
+                onClick={(event) => showImage(event, item._id)} className="image"
               />
             </ImageListItem>
           ))}
