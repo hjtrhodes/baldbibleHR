@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import "./GetImages.css"
 
 
 const GetImages = ({ }) => {
@@ -7,7 +8,7 @@ const GetImages = ({ }) => {
 
   useEffect(() => {
     // if(token) {
-      fetch("http://localhost:8080/api/images", {
+      fetch("http://localhost:8080/api/image", {
         // headers: {
         //   'Authorization': `Bearer ${token}`
         // }
@@ -26,9 +27,16 @@ const GetImages = ({ }) => {
 
   
       return(
-        <>
-        <div>{images.map(imgData => <img src={imgData.imageURL}></img>)}</div>
-        </>
+        <div className='image'>
+        {images.map(imgData => (
+          <div key={imgData._id}>
+            <img src={imgData.imageURL} className='image' />
+            {/* <div className='likebutton'>
+              <LikeButton image_id={imgData._id} />
+            </div> */}
+          </div>
+        ))}
+      </div>
       )
 }
 
