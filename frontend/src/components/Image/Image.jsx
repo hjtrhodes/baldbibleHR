@@ -14,7 +14,7 @@ const Image = (props) => {
         <>
             {/* <Comments imageId={imageId} imageSrc={imageSrc} />
             <img src={imageSrc} alt="Selected Image" /> */}
-            <img src={imageSrc} alt="Selected Image" />
+            <img src={imageSrc} alt="Selected Image" className='indvpageimage' />
             <div>
                 <LikeButton imageId={imageId} />
             </div>

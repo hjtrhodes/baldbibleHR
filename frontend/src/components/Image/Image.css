@@ -5,7 +5,7 @@
 }
 
 .image:hover {
-    transform: scale(1.03); /* Enlarge the image by 10% on hover */
+    transform: scale(1.02); /* Enlarge the image by 10% on hover */
 }
 
 #image-list {
@@ -14,4 +14,11 @@
 
 .image-column {
     margin: 5px;
+}
+
+.indvpageimage {
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+    border-radius: 10px; /* Adjust the border-radius to control the degree of rounding */
+    margin-top: 20px;
 }
