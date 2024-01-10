@@ -18,4 +18,4 @@ const commentSchema = mongoose.Schema(
 );
 
 // timestamp is better because it tells you when the comment was created or edited.
-module.exports = mongoose.model("Comment", commentSchema);
+module.exports = mongoose.model('Comment', commentSchema);

@@ -1,18 +1,14 @@
-const express = require("express"); // import express module, to make our app an express server
-const mongoose = require("mongoose"); // import mongoose module, to connect to MongoDB database
-// mongoose is an ODM (Object Document Mapper) for MongoDB and Node.js. It allows us to interact with the MongoDB database in an object-oriented way. It provides a schema-based solution to model our application data with MongoDB. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
-const cors = require('cors'); // import cors module, to deal with the CORS policy
-const path = require("path"); // import path module, to deal with file paths
-const cloudinary = require("./cloudinary/cloudinary");
-const Image = require("./controllers/upload")
-
-const { password } = require('./config');
-const dbName = process.env.MONGO_URL || 'baldbible';
+const express = require('express'); 
+const mongoose = require('mongoose'); 
+const path = require('path'); // import path module, to deal with file paths
+const cors = require('cors');
+const { password }  = require('./config'); // import the password property of the object exported from config.js
+// the password in config.js is the password for the user pablojoyce, which has read and write access to the database
 
 const imageRoutes = require('./routes/image'); // import the router object, which is exported from stuff.js
 const userRoutes = require('./routes/user'); // import the router object, which is exported from user.js
 
-const app = express();
+const app = express(); // call the express function, which returns an object with a listen method
 
 
 const { error } = require("console");
@@ -25,20 +21,21 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 // call the use method, which adds a middleware function to the middleware stack, to parse the request body
 // express.json() intercepts every request with json data content type, take the request  body and put it onto the request object as the body property.
 
-mongoose
-  .connect(
-    `mongodb+srv://team3-baldbible:${password}@bald-bible-database.vqxy3e3.mongodb.net/${dbName}?retryWrites=true&w=majority`,
-  )
+const dbname = process.env.MONGO_URL || 'baldbible'
 
-  .then(() => {
-    // call the then method, which adds a callback function to the promise, to handle the success case
-    console.log("Successfully connected to MongoDB Atlas!"); // log a message to the console
+mongoose.connect(`mongodb+srv://team3-baldbible:${password}@bald-bible-database.vqxy3e3.mongodb.net/${dbname}?retryWrites=true&w=majority`)
+
+  .then(() => { // call the then method, which adds a callback function to the promise, to handle the success case
+    console.log('Successfully connected to MongoDB Atlas!'); // log a message to the console
   })
-  .catch((error) => {
-    // call the catch method, which adds a callback function to the promise, to handle the failure case
-    console.log("Unable to connect to MongoDB Atlas!"); // log a message to the console
+  .catch((error) => { // call the catch method, which adds a callback function to the promise, to handle the failure case
+    console.log('Unable to connect to MongoDB Atlas!'); // log a message to the console
     console.error(error); // log the error to the console
   });
+  
+app.use(express.json()); // call the use method, which adds a middleware function to the middleware stack, to parse the request body
+// express.json() intercepts every request with json data content type, take the request  body and put it onto the request object as the body property.
+
 
 
 // The following code is executed for every incoming request

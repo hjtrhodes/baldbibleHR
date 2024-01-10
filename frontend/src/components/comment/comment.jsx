@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Comments = ({ imageId, imageSrc }) => {
+const Comments = ({ imageId }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [token, setToken] = useState(window.localStorage.getItem("token"));
@@ -42,7 +42,11 @@ const Comments = ({ imageId, imageSrc }) => {
       
 
       // Refresh the comments after submitting a new comment
-      const response = await axios.get(`http://localhost:8080/api/images/${imageId}/comments`);
+      const response = await axios.get(`http://localhost:8080/api/images/${imageId}/comments`, {
+        'headers' : {
+          'Authorization': `Bearer ${token}`
+        }
+      })
       setComments(response.data);
       console.log(response.data)
 
@@ -55,7 +59,7 @@ const Comments = ({ imageId, imageSrc }) => {
 
   return (
     <div>
-  
+    
 
       <form onSubmit={handleCommentSubmit}>
         <label>
@@ -71,10 +75,9 @@ const Comments = ({ imageId, imageSrc }) => {
       <h2>Comments</h2>
       <ul>
         {comments.map(comment => (
-          <li key={comment}>{comment}</li>
+          <li key={comment._id}>{comment.content}</li>
         ))}
       </ul>
-
     </div>
   );
 };
