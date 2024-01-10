@@ -5,7 +5,7 @@ const auth = require('../middleware/auth'); // import the object exported from m
 const multer = require('../middleware/multer-config'); // import the object exported from middleware/multer-config.js
 
 const stuffCtrl = require('../controllers/image'); // import the object exported from controllers/stuff.js
-
+const commentCtrl = require('../controllers/comment');
 
 // Get request for all images
 // router.get("/", (req,res) =>{
@@ -22,5 +22,9 @@ router.get('/:id', auth, stuffCtrl.getOneImage); // call the get method, which a
 router.put('/:id', auth, multer, stuffCtrl.modifyImage); // call the put method, which adds a route to the router object, to handle PUT requests to the /:id endpoint referencing the modifyImage function in controllers/stuff.js
 
 router.delete('/:id', auth, stuffCtrl.deleteImage); // call the delete method, which adds a route to the router object, to handle DELETE requests to the /:id endpoint referencing the deleteImage function in controllers/stuff.js
+
+router.post('/:id/comments', auth, commentCtrl.addComment);
+
+router.get('/:id/comments', auth, commentCtrl.getAllComments);
 
 module.exports = router; // export the router object, so it can be used by other code, e.g. app.jsn

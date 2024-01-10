@@ -1,6 +1,7 @@
 const express = require('express'); 
 const mongoose = require('mongoose'); 
 const path = require('path'); // import path module, to deal with file paths
+const cors = require('cors');
 
 const { password }  = require('./config'); // import the password property of the object exported from config.js
 // the password in config.js is the password for the user pablojoyce, which has read and write access to the database
@@ -10,7 +11,7 @@ const userRoutes = require('./routes/user'); // import the router object, which 
 
 const app = express(); // call the express function, which returns an object with a listen method
 
-// app.use(cors()); // call the use method, which adds a middleware function to the middleware stack, to deal with the CORS policy
+app.use(cors()); // call the use method, which adds a middleware function to the middleware stack, to deal with the CORS policy
 
 const dbname = process.env.MONGO_URL || 'baldbible'
 

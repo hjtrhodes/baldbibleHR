@@ -15,13 +15,18 @@ exports.createImage = (req, res, next) => { // call the post method, which adds 
     .catch(error => res.status(400).json({ error: error })); // call the catch method, which adds a callback function to the promise, to handle the failure case
 }
 
-exports.getOneImage = (req, res, next) => { // call the get method, which adds a route to the router object, to handle GET requests to the /:id endpoint
+exports.getOneImage = (req, res, next) => {
+  console.log("GET ONE")
+  console.log("ID", req.params.id)
+  // call the get method, which adds a route to the router object, to handle GET requests to the /:id endpoint
   Image.findOne({ _id: req.params.id }) // call the findOne method, which returns a promise, which resolves to the Image object with the specified id
     .then(image => res.status(200).json(image)) // call the then method, which adds a callback function to the promise, to handle the success case
     .catch(error => res.status(404).json({ error: error })); // call the catch method, which adds a callback function to the promise, to handle the failure case
 }
+
 //handle function for to get all images from db
 exports.getAllImage = (req, res) => { 
+  console.log("ALL IMAGES")
   Image.find({ }) 
     .then(image => res.status(200).json(image)) 
     .catch(error => res.status(404).json({ error: error })); 
@@ -71,7 +76,10 @@ exports.deleteImage = (req, res, next) => { // call the delete method, which add
     })
 };
 
-exports.getAllStuff = (req, res) => { // call the get method, which adds a route to the router object, to handle GET requests to the /api/stuff endpoint
+exports.getAllStuff = (req, res) => {
+  
+  console.log("ALL STUFF")
+  // call the get method, which adds a route to the router object, to handle GET requests to the /api/stuff endpoint
   Image.find() // call the find method, which returns a promise, which resolves to an array of all the Image objects in the database
     .then(images => res.status(200).json(images)) // call the then method, which adds a callback function to the promise, to handle the success case
     .catch(error => res.status(400).json({ error: error })); // call the catch method, which adds a callback function to the promise, to handle the failure case
