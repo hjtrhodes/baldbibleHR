@@ -4,14 +4,19 @@ import axios from 'axios';
 const Comments = ({ imageId, imageSrc }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
+  const [token, setToken] = useState(window.localStorage.getItem("token"));
 
   useEffect(() => {
     // Fetch existing comments for the image
     console.log('Fetching comments for imageId:', imageId);
-    axios.get(`/api/images/${imageId}/comments`)
+    axios.get(`http://localhost:8080/api/images/${imageId}/comments`, {
+        'headers' : {
+          'Authorization': `Bearer ${token}`
+        }
+      })
       .then(response => {
-      console.log('Comments:', response.data);
-      setComments(response.data);
+      console.log('Comments:', response);
+      setComments(response.data || []); // Ensure comments is an array
     })
       .catch(error => console.error('Error fetching comments:', error));
   }, [imageId]);
@@ -21,14 +26,25 @@ const Comments = ({ imageId, imageSrc }) => {
 
     try {
       // Send a request to add a new comment
-      await axios.post(`/api/images/${imageId}/comments`, {
-        userId: 'user123', // Replace with actual userId from authentication
-        content: newComment,
-      });
+     
+      const url = `http://localhost:8080/api/images/${imageId}/comments`;
+      const body = {
+                      content: newComment,
+                };
+      const options = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      await axios.post(url, body, options)
+
+      
 
       // Refresh the comments after submitting a new comment
-      const response = await axios.get(`/api/images/${imageId}/comments`);
+      const response = await axios.get(`http://localhost:8080/api/images/${imageId}/comments`);
       setComments(response.data);
+      console.log(response.data)
 
       // Clear the input field
       setNewComment('');
@@ -39,12 +55,7 @@ const Comments = ({ imageId, imageSrc }) => {
 
   return (
     <div>
-      <h2>Comments</h2>
-      <ul>
-        {comments.map(comment => (
-          <li key={comment._id}>{comment.content}</li>
-        ))}
-      </ul>
+  
 
       <form onSubmit={handleCommentSubmit}>
         <label>
@@ -56,7 +67,14 @@ const Comments = ({ imageId, imageSrc }) => {
         </label>
         <button type="submit">Submit Comment</button>
       </form>
-      <img src={imageSrc} alt="Selected Image" />
+
+      <h2>Comments</h2>
+      <ul>
+        {comments.map(comment => (
+          <li key={comment}>{comment}</li>
+        ))}
+      </ul>
+
     </div>
   );
 };

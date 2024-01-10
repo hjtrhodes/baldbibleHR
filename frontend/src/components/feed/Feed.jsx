@@ -28,8 +28,10 @@ const Feed = () => {
     }, [])
     console.log(images);
 
-    const showImage = (event, imageId) => {
+    const showImage = (event) => {
+        console.log(event)
         const imageSrc = event.target.src;
+        const imageId = event.target.dataset.imageId
         navigate(`/image?imageSrc=${imageSrc}&imageId=${imageId}`)
     }
     return (
@@ -46,6 +48,7 @@ const Feed = () => {
                 width={item.width}
                 height={item.height}
                 loading="lazy"
+                data-image-id={item._id}
                 style={{ height: `${item.height}px` // this will change the height of the image based on likes/upvotes
                     }}
                         
