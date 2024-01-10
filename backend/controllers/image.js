@@ -95,7 +95,7 @@ exports.getAllStuff = (req, res) => {
     .catch((error) => res.status(400).json({ error: error })); // call the catch method, which adds a callback function to the promise, to handle the failure case
 };
 
-exports.Likes = async (req, res) => {
+exports.AddOrRemoveUserIDFromImageLikesArray = async (req, res) => {
   const imageId = req.params.id;
   const userId = req.body.userId;
 
