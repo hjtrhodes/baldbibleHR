@@ -37,7 +37,7 @@ const Feed = () => {
         <Box id="image-layout-inner-box" sx={{ width: "400", overflowy: 'scroll' }}>
         <ImageList id="image-list" variant="masonry" cols={3} gap={0}>
             {images.map((item) => (
-            <ImageListItem key={item.img} id={`image-${item.img}`} >
+            <ImageListItem key={item.img} id={`image-${item.img}`} className="image-column">
                 <img
                 
                 
@@ -49,7 +49,7 @@ const Feed = () => {
                 style={{ height: `${item.height}px` // this will change the height of the image based on likes/upvotes
                     }}
                         
-                onClick={showImage}
+                onClick={showImage} className="image"
                 />
             </ImageListItem>
             ))}
