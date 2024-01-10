@@ -1,0 +1,10 @@
+.image, .likebutton {
+    bottom: 0;
+    right: 0;
+}
+
+.likebutton {
+    bottom: 20px; /* Adjust the bottom position for the second element */
+    right: 20px; 
+    z-index: 1000;
+}

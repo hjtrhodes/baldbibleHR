@@ -2,9 +2,9 @@ const mongoose = require('mongoose'); // import mongoose
 
 const photoSchema = mongoose.Schema({ // define a schema for things
   // description: { type: String, required: true }, // define a description property, which is a required string
-  userId: { type: String, required: false }, // define a userId property, which is a required string
-  username: { type: String, required: true },
-  imageURL: { type: String, required: true }, // define an imageUrl property, which is a required string
+  imageUrl: { type: String }, // define an imageUrl property, which is a required string
+  userId: { type: String }, // define a userId property, which is a required string
+  likedByUser: { type: [String], default: [] },
 });
 
 module.exports = mongoose.model('Images', photoSchema); // export the model, which is created from the schema, and give it the name 'Thing'
