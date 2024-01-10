@@ -7,6 +7,15 @@
     transition: transform 0.2s ease-in-out;
 }
 
+.likescontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
 .likeButton:hover {
     transform: scale(1.2); /* Increase the size on hover */
 }

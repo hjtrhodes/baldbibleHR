@@ -1,6 +1,6 @@
 /* Updated styles for the link container */
 .nav {
-  position: fixed; /* Make the navigation bar fixed */
+  position: absolute; /* Make the navigation bar fixed */
   top: 0; /* Stick it to the top of the viewport */
   left: 0;
   right: 0;

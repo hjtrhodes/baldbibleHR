@@ -39,7 +39,7 @@ const Feed = () => {
         id="image-layout-inner-box"
         sx={{ width: "400", overflowy: "scroll" }}
       >
-        <ImageList id="image-list" variant="masonry" cols={3} gap={0}>
+        <ImageList className="image-list" id="image-list" variant="masonry" cols={3} gap={0}>
           {images.map((item) => (
             <ImageListItem key={item._id} id={`image-${item.img}`}className="image-column">
               <img
