@@ -1,26 +1,31 @@
-.image {
-    margin: 10px;
-    margin-top: -5px;
-    border-radius: 40px;
-    transition: transform 0.3s; /* Add a smooth transition effect */
-    padding-top: 10px;
+this is our current image css page can you style the image details to match this and position below the image .image {
+  margin: 10px;
+  margin-top: -5px;
+  border-radius: 40px;
+  transition: transform 0.3s; /* Add a smooth transition effect */
+  padding-top: 10px;
 }
 
 .image:hover {
-    transform: scale(1.02); /* Enlarge the image by 10% on hover */
+  transform: scale(1.02); /* Enlarge the image by 10% on hover */
 }
 
 #image-list {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .image-column {
-    margin: 5px;
+  margin: 5px;
 }
 
 .indvpageimage {
-    display: block;
-    margin: 0 auto; /* Center the image horizontally */
-    border-radius: 10px; /* Adjust the border-radius to control the degree of rounding */
-    margin-top: 20px;
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+  border-radius: 10px; /* Adjust the border-radius to control the degree of rounding */
+  margin-top: 20px;
+}
+
+.image-details {
+  margin-top: 10px;
+  text-align: center;
 }
