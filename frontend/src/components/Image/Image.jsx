@@ -10,6 +10,11 @@ const Image = (props) => {
   const imageId = searchParams.get("imageId");
   const username = searchParams.get("username");
   const dateAdded = new Date(searchParams.get("dateAdded")).toLocaleString();
+  
+    useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []); // The empty dependency array ensures the effect runs only once on mount
 
   return (
     <>
@@ -18,7 +23,7 @@ const Image = (props) => {
         <div className="image-details">
           <p>Date Added: {dateAdded}</p>
           <p>Username: {username}</p>
-          <div />
+         <div />
           <LikeButton imageId={imageId} />
           <Comments imageId={imageId} imageSrc={imageSrc} />
         </div>
