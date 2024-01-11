@@ -68,6 +68,15 @@ const Upload = ({ navigate }) => {
         <strong>
           <label htmlFor="fileInput">
             <h2>Upload your photo here</h2>
+            <p>
+              <br />
+            <h4> 
+              Please upload photos that are acceptable as per the Bald-Bible community guidelines.
+              <br />
+              This is a community to help people embrace hairloss any breaking of the guidelines will lead to account suspension
+            </h4>
+            <br />
+            </p>
           </label>
         </strong>
         <input
