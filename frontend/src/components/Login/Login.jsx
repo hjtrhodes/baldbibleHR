@@ -64,7 +64,6 @@ const handlePasswordChange = (event) => {
             <h1>Login</h1>
             <input id="login-email" type="email" placeholder="Email" value={ email } onChange={handleEmailChange} />
             <input id="login-password" type="password" placeholder="Password" value={ password } onChange={handlePasswordChange} />
-
             <Button id="login-submit" type="submit" aria-label="Login" className="btn">Login</Button>
             </form></div>
             <br></br>

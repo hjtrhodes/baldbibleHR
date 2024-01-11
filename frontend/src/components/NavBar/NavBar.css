@@ -32,3 +32,18 @@ body {
   padding-top: 120px; /* Adjust the padding to match the height of your navigation bar */
 }
 
+.nav-btn-signup,
+.nav-btn-login {
+  background-color: #000; /* Default color */
+  color: #fff;
+  cursor: pointer; /* Set cursor to pointer for clickable buttons */
+}
+
+.nav-btn-signup.active,
+.nav-btn-login.active {
+  background-color: grey; /* Change to grey when on the respective page */
+  color: #666; /* Change text color to grey */
+  transform: none; /* Remove transform effect */
+  /* Omit or set cursor to auto for normal mouse pointer */
+  cursor: auto;
+}

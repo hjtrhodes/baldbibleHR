@@ -25,6 +25,9 @@ const NavBar = ({ navigate }) => {
   };
 
   useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+
     // Store the current page in local storage
     window.localStorage.setItem('currentPage', location.pathname);
   }, [location.pathname]);
