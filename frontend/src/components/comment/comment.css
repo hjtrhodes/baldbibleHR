@@ -68,3 +68,27 @@
     width: 100%;
   }
   
+  .deletebutton {
+    background-color: #000;
+    color: #fff;
+    font-size: 0.3rem; /* Adjust the font size as needed */
+    padding: 0.2rem 0.5rem; /* Adjust padding as needed */
+    border-radius: 5px; /* Add border-radius for a rounded look */
+    cursor: pointer;
+    margin-left: 5%; /* Push the button to the right */
+    
+      /* Apply button styles */
+      background-color: #000;
+      background-image: none;
+      color: #fff; 
+      font-size: 0.7vw;
+      font-weight: 600;
+      line-height: 1.5;
+      text-transform: uppercase;
+      border-radius: 99rem;
+      border-width: 1px;
+      overflow: hidden;
+      padding: 0.3rem 0.9rem;
+      position: relative;
+  }
+  

@@ -4,7 +4,7 @@ import { formatDistanceToNow } from 'date-fns'; // Import the necessary function
 import Button from '../Button/Button';
 import './comment.css'; // Import your CSS file
 
-const Modal = ({ closeModal, comments }) => (
+const Modal = ({ closeModal, comments, onDeleteComment, userId }) => (
   <div className="modal-overlay" onClick={closeModal}>
     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
       <div className="comments-list">
@@ -18,6 +18,11 @@ const Modal = ({ closeModal, comments }) => (
               <p className="comment-content">{comment.content}</p>
               <p className="comment-time">
                 {formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true })}
+              {onDeleteComment && userId === comment.userId && (
+                <button className="deletebutton" onClick={() => onDeleteComment(comment._id)}>
+                  Delete Comment
+                </button>
+              )}
               </p>
             </div>
           ))
@@ -27,11 +32,41 @@ const Modal = ({ closeModal, comments }) => (
   </div>
 );
 
+
 const Comments = ({ imageId }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [token, setToken] = useState(window.localStorage.getItem('token'));
   const [showModal, setShowModal] = useState(false);
+  const userId = window.localStorage.getItem('userId');
+
+  const onDeleteComment = async (commentId) => {
+    try {
+      const confirmDelete = window.confirm('Are you sure you want to delete this comment?');
+      if (!confirmDelete) {
+        return;
+      }
+
+      const url = `http://localhost:8080/api/images/${imageId}/comments/${commentId}`;
+      const options = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      await axios.delete(url, options);
+
+      const response = await axios.get(`http://localhost:8080/api/images/${imageId}/comments`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setComments(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+    }
+  };
 
   useEffect(() => {
     // Fetch existing comments for the image
@@ -102,24 +137,25 @@ const Comments = ({ imageId }) => {
   };
 
   const handleShowComments = () => {
+    const token = window.localStorage.getItem('token');
+  
     // Check if the token is available
     if (!token) {
       // Token is missing, ask the user if they want to go to the login page
       const goToLoginPage = window.confirm(
         'You need to be logged in to view comments. Do you want to go to the login page?'
       );
-
+  
       if (goToLoginPage) {
         // Redirect to the login page
         window.location.href = `/login`;
-        return; // Stop further execution
-      } else {
-        // User decided not to go to the login page
-        return;
       }
+  
+      // User decided not to go to the login page or canceled the prompt
+      return;
     }
-
-    // Proceed with showing comments
+  
+    // Continue with showing comments
     setShowModal(true);
   };
 
@@ -146,7 +182,7 @@ const Comments = ({ imageId }) => {
         <Button type="button" onClick={handleShowComments}>
           Show Comments
         </Button>
-        {showModal && <Modal closeModal={closeModal} comments={comments} />}
+        {showModal && <Modal closeModal={closeModal} comments={comments} onDeleteComment={onDeleteComment} userId={userId} />}
       </div>
     </div>
   );
