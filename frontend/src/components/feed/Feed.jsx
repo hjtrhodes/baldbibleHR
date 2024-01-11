@@ -41,9 +41,9 @@ const Feed = () => {
       });
   }, []);
 
-  const showImage = (event, imageId) => {
+  const showImage = (event, imageId, username, dateAdded) => {
     const imageSrc = event.target.src;
-    navigate(`/image?imageSrc=${imageSrc}&imageId=${imageId}`);
+    navigate(`/image?imageSrc=${imageSrc}&imageId=${imageId}&username=${username}&dateAdded=${dateAdded}`);
   };
 
   return (
@@ -59,7 +59,7 @@ const Feed = () => {
                 height={item.height}
                 loading="lazy"
                 style={{ height: `${item.height}px` }}
-                onClick={(event) => showImage(event, item._id)} className="image"
+                onClick={(event) => showImage(event, item._id, item.username, item.dateAdded)} className="image"
               />
             </ImageListItem>
           ))}
