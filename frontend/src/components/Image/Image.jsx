@@ -12,11 +12,10 @@ const Image = (props) => {
 
     return (
         <>
-            {/* <Comments imageId={imageId} imageSrc={imageSrc} />
-            <img src={imageSrc} alt="Selected Image" /> */}
-            <img src={imageSrc} alt="Selected Image" className='indvpageimage' />
+            <img src={imageSrc} alt="Selected Image" className='indvpageimage'/>
             <div>
                 <LikeButton imageId={imageId} />
+                <Comments imageId={imageId} imageSrc={imageSrc}/>
             </div>
         </>
     );
@@ -27,18 +26,4 @@ export default Image;
 
 
 
-// const Image = () => {
-//   const [searchParams] = useSearchParams();
-//   const imageSrc = searchParams.get('imageSrc');
-//   const imageId = searchParams.get('imageId');
 
-//   return (
-//     <>
-//       <h1>Image</h1>
-//       <Comments imageId={imageId} imageSrc={imageSrc} />
-//       <img src={imageSrc} alt="Selected Image" />
-//     </>
-//   );
-// };
-
-// export default Image;
