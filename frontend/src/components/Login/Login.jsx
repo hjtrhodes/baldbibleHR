@@ -39,7 +39,7 @@ const handleLoginSubmit = async (event) => {
         navigate('/');
     } else {
       // BAD NEWS.
-        setErrorMessage("Email or Password incorrect, please try again")
+        setErrorMessage("Email or Password incorrect,\nplease try again")
     }
 }
 
@@ -64,15 +64,15 @@ const handlePasswordChange = (event) => {
             <h1>Login</h1>
             <input id="login-email" type="email" placeholder="Email" value={ email } onChange={handleEmailChange} />
             <input id="login-password" type="password" placeholder="Password" value={ password } onChange={handlePasswordChange} />
-            {errorMessage && (
-            <div className="error-message">
-
-                <p>{errorMessage}</p>
-            </div>
-            )}
 
             <Button id="login-submit" type="submit" aria-label="Login" className="btn">Login</Button>
             </form></div>
+            <br></br>
+            {errorMessage && (
+            <div className="error-message">
+                <p>{errorMessage}</p>
+            </div>
+            )}
     <h2>&nbsp;</h2>
     </div>
     </div>

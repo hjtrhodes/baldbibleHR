@@ -111,14 +111,14 @@ const handleUserNameChange = (event) => {
             <input id="user-name" type="text" placeholder="Username" value={ username } onChange={handleUserNameChange} />
             <input id="sign-up-email" type="email" placeholder="Email" value={ signUpEmail } onChange={handleSignupEmailChange} />
             <input id="sign-up-password" type="password" placeholder="Password" value={ signUpPassword } onChange={handleSignupPasswordChange} />
+            <Button id="sign-up-submit" type="submit" aria-label="Signup" >Sign Up</Button>
+            </form></div>
+            <br></br>
             {signupStatus && (
             <div className="error-message">
-
                 <p id="signup-confirmation" >{signupStatus}</p>
             </div>
             )}
-            <Button id="sign-up-submit" type="submit" aria-label="Signup" >Sign Up</Button>
-            </form></div>
     <h2>&nbsp;</h2>
     </div>
     </div>
