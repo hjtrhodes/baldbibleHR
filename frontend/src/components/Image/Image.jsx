@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import Comments from "../comment/comment";
 import "./Image.css";
@@ -23,7 +24,7 @@ const Image = (props) => {
         <div className="image-details">
           <p>Date Added: {dateAdded}</p>
           <p>Username: {username}</p>
-         <div />
+          <div />
           <LikeButton imageId={imageId} />
           <Comments imageId={imageId} imageSrc={imageSrc} />
         </div>
