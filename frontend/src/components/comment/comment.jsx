@@ -18,12 +18,12 @@ const Modal = ({ closeModal, comments, onDeleteComment, userId }) => (
               <p className="comment-content">{comment.content}</p>
               <p className="comment-time">
                 {formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true })}
+              </p>
               {onDeleteComment && userId === comment.userId && (
-                <button className="deletebutton" onClick={() => onDeleteComment(comment._id)}>
+                <button className="commentbutton" onClick={() => onDeleteComment(comment._id)}>
                   Delete Comment
                 </button>
               )}
-              </p>
             </div>
           ))
         )}
@@ -176,12 +176,12 @@ const Comments = ({ imageId }) => {
               cols={60}
             />
           </label>
-          <Button type="submit">Add Comment</Button>
+          <button className="commentbutton" type="submit">Add Comment</button>
         </form>
         <br></br>
-        <Button type="button" onClick={handleShowComments}>
+        <button className="commentbutton" type="button" onClick={handleShowComments}>
           Show Comments
-        </Button>
+        </button>
         {showModal && <Modal closeModal={closeModal} comments={comments} onDeleteComment={onDeleteComment} userId={userId} />}
       </div>
     </div>
