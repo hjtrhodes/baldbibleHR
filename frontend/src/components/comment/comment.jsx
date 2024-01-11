@@ -102,6 +102,24 @@ const Comments = ({ imageId }) => {
   };
 
   const handleShowComments = () => {
+    // Check if the token is available
+    if (!token) {
+      // Token is missing, ask the user if they want to go to the login page
+      const goToLoginPage = window.confirm(
+        'You need to be logged in to view comments. Do you want to go to the login page?'
+      );
+
+      if (goToLoginPage) {
+        // Redirect to the login page
+        window.location.href = `/login`;
+        return; // Stop further execution
+      } else {
+        // User decided not to go to the login page
+        return;
+      }
+    }
+
+    // Proceed with showing comments
     setShowModal(true);
   };
 
@@ -135,3 +153,4 @@ const Comments = ({ imageId }) => {
 };
 
 export default Comments;
+
