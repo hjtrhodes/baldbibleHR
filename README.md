@@ -1,6 +1,6 @@
 # Bald Bible
 
-BaldBible is my final Makers project. It is an idea that I pitched after experiencing hair loss and feeling that there should be a more obvious alternative to the hair loss prevention industry. As a result it is a Pinterest style, hair loss positivity website leveraging the power of images to imspire users to be more accepting of themselves.
+BaldBible is my final Makers project. It is an idea that I pitched after experiencing hair loss and feeling that there should be a more obvious alternative to the hair loss prevention industry. As a result it is a Pinterest style, hair loss positivity website leveraging the power of images to inspire users to be more accepting of themselves.
 
 The main focus was working with images using Cloudinary. Other functionality includes having a responsive feed page, image upload, login/signup, likes and comments. Built in 2 weeks using AGILE methodology.
 
