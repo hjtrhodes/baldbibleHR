@@ -18,6 +18,8 @@ const normalisePort = val => { // define a function to normalise the port number
 };
 
 const port = normalisePort(process.env.PORT || '8080'); // set the port property of the app object to 3000, or to the environment variable PORT, if it exists
+console.log('PORT environment variable:', process.env.PORT);
+console.log('Normalized port:', port);
 
 app.set('port', port); // set the port property of the app object to the port variable
 
