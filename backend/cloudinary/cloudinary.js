@@ -1,17 +1,23 @@
 const cloudinary = require('cloudinary').v2; 
-const config = require('../config')
+let cloudinaryConfig;
 
+try {
+  // Try to use local config
+  cloudinaryConfig = require('../config');
+} catch (error) {
+  // If local config is not available, use environment variables
+  cloudinaryConfig = {
+    CLOUD_NAME: process.env.CLOUD_NAME,
+    CLOUD_KEY: process.env.CLOUD_KEY,
+    CLOUD_SECRET: process.env.CLOUD_SECRET
+  };
+}
 
 cloudinary.config({
-  cloud_name: config.CLOUD_NAME,
-  api_key: config.CLOUD_KEY,
-  api_secret: config.CLOUD_SECRET,
+  cloud_name: cloudinaryConfig.CLOUD_NAME,
+  api_key: cloudinaryConfig.CLOUD_KEY,
+  api_secret: cloudinaryConfig.CLOUD_SECRET,
   secure: true
 });
-
-// cloudinary.v2.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
-//   { public_id: "olympic_flag" }, 
-//   function(error, result) {console.log(result); });
-
 
 module.exports = cloudinary
