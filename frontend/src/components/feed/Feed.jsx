@@ -4,7 +4,6 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Comments from "../comment/comment";
 import baseUrl from "../../../util/baseUrl";
 
 const Feed = () => {
@@ -23,18 +22,6 @@ const Feed = () => {
       })
       .then((data) => {
         setImages(data.reverse()); // Reverse the array before setting in the state
-      })
-      .catch((error) => {
-        console.error("Error fetching images:", error.message);
-      });
-  }, []);
-
-  useEffect(() => {
-    fetch(`${baseUrl}/api/images"`, {})
-      .then((response) => response.json())
-      .then((data) => {
-        // Reverse the order of images here
-        setImages(data.reverse());
       })
       .catch((error) => {
         console.error("Error fetching images:", error.message);
