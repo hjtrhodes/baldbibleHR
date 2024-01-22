@@ -50,7 +50,7 @@ const Home = ({ navigate }) => {
                     This website is deployed as a free web service on Render.com - These web
                     services spin down with inactivity, particularly the backend server, so if you are not seeing any pictures and
                     can't login or signup, you may have to wait up to five minutes for it to wake up! Why not go grab a cup of
-                    tea and come back? I promise it is worth it. But if you can see pictures - the server is running, you're good to go!
+                    tea and come back? I promise it is worth it. But if you can see pictures - ignore this message - the server is running, you're good to go!
                 </p>
                 <p className='rendertimer'>
                     Time remaining: {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}
