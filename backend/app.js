@@ -22,7 +22,7 @@ const app = express(); // call the express function, which returns an object wit
 
 const { error } = require("console");
 app.use(cors({
-  origin: ['https://baldbible-s8q0.onrender.com:5173', 'http://localhost:5173'],
+  origin: ['https://baldbible-s8q0.onrender.com', 'http://localhost:5173'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
