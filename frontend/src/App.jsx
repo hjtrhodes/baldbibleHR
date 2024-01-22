@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import NavBar from './components/NavBar/NavBar';
 import SignupPage from './pages/Signup';
 import LoginPage from './pages/Login';
-import Upload from './pages/photo upload/upload';
+import Upload from './pages/photo upload/Upload';
 import Image from './components/Image/Image'
 import Feed from './components/feed/Feed';
 
