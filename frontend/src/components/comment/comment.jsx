@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { formatDistanceToNow } from 'date-fns'; // Import the necessary function
-import Button from '../Button/Button';
+import { formatDistanceToNow } from 'date-fns';
 import baseUrl from '../../../util/baseUrl';
-import './comment.css'; // Import your CSS file
+import './comment.css';
 
 const Modal = ({ closeModal, comments, onDeleteComment, userId }) => (
   <div className="modal-overlay" onClick={closeModal}>
@@ -32,7 +31,6 @@ const Modal = ({ closeModal, comments, onDeleteComment, userId }) => (
     </div>
   </div>
 );
-
 
 const Comments = ({ imageId }) => {
   const [comments, setComments] = useState([]);
@@ -93,19 +91,9 @@ const Comments = ({ imageId }) => {
 
       // Check if the token is available
       if (!token) {
-        // Token is missing, ask the user if they want to go to the login page
-        const goToLoginPage = window.confirm(
-          'You need to be logged in to add a comment. Do you want to go to the login page?'
-        );
-
-        if (goToLoginPage) {
-          // Redirect to the login page
-          window.location.href = `/login`;
-          return; // Stop further execution
-        } else {
-          // User decided not to go to the login page
-          return;
-        }
+        // Token is missing, show alert and optionally redirect to the login page
+        showLogoutAlert();
+        return;
       }
 
       // Send a request to add a new comment
@@ -139,25 +127,27 @@ const Comments = ({ imageId }) => {
 
   const handleShowComments = () => {
     const token = window.localStorage.getItem('token');
-  
+
     // Check if the token is available
     if (!token) {
-      // Token is missing, ask the user if they want to go to the login page
-      const goToLoginPage = window.confirm(
-        'You need to be logged in to view comments. Do you want to go to the login page?'
-      );
-  
-      if (goToLoginPage) {
-        // Redirect to the login page
-        window.location.href = `/login`;
-      }
-  
-      // User decided not to go to the login page or canceled the prompt
+      // Token is missing, show alert and optionally redirect to the login page
+      showLogoutAlert();
       return;
     }
-  
+
     // Continue with showing comments
     setShowModal(true);
+  };
+
+  const showLogoutAlert = () => {
+    // Show an alert indicating the user has been logged out
+    alert('You have been logged out.');
+
+    // Optionally, redirect to the login page
+    const goToLoginPage = window.confirm('Do you want to go to the login page?');
+    if (goToLoginPage) {
+      window.location.href = `/login`;
+    }
   };
 
   const closeModal = () => {
@@ -173,13 +163,13 @@ const Comments = ({ imageId }) => {
             <textarea
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
-              rows={5} // Adjust the number of rows as needed
+              rows={5}
               cols={60}
             />
           </label>
           <button className="commentbutton" type="submit">Add Comment</button>
         </form>
-        <br></br>
+        <br />
         <button className="commentbutton" type="button" onClick={handleShowComments}>
           Show Comments
         </button>

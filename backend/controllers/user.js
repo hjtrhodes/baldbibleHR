@@ -2,28 +2,48 @@ const bcrypt = require("bcrypt"); // import bcrypt
 const jwt = require("jsonwebtoken"); // import jsonwebtoken
 const User = require("../models/user"); // import the User model, which is exported from user.js
 
-exports.signup = (req, res, next) => {
-  // call the post method, which adds a route to the router object, to handle POST requests to the /api/auth/signup endpoint
-  bcrypt
-    .hash(req.body.password, 10) // call the hash method, which returns a promise, which resolves to a hash of the password
-    .then((hash) => {
-      // call the then method, which adds a callback function to the promise, to handle the success case
-      const user = new User({
-        // create a new User object, using the User model
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email, // set the email property of the User object to the email property of the request body
-        password: hash, // set the password property of the User object to the hash of the password
-        username: req.body.username,
-      }); // end of const user = new User({ ... })
-      user
-        .save() // call the save method, which saves the User object to the database
-        .then(() =>
-          res.status(201).json({ message: "User added successfully!" }),
-        ); // call the then method, which adds a callback function to the promise, to handle the success case
-    }) // end of .then(hash => { ... })
-    .catch((error) => res.status(500).json({ error: error })); // call the catch method, which adds a callback function to the promise, to handle the failure case
-}; // end of exports.signup = (req, res, next) => { ... }
+exports.signup = async (req, res, next) => {
+  const password = req.body.password;
+
+  // Password requirements
+  const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+
+  if (!passwordRegex.test(password)) {
+    return res.status(400).json({
+      message:
+        'Password must be at least 8 characters, contain at least one uppercase character and one special character.',
+    });
+  }
+
+  try {
+    // Check if email or username already exist in the database
+    const existingUser = await User.findOne({
+      $or: [{ email: req.body.email }, { username: req.body.username }],
+    });
+
+    if (existingUser) {
+      // User with the same email or username already exists
+      return res.status(409).json({
+        message: 'Email or username already exists. Please choose a different one.',
+      });
+    }
+
+    // If no existing user, proceed with user creation
+    const hash = await bcrypt.hash(password, 10);
+    const newUser = new User({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: hash,
+      username: req.body.username,
+    });
+
+    await newUser.save();
+    return res.status(201).json({ message: 'User added successfully!' });
+  } catch (error) {
+    return res.status(500).json({ error: error.message || 'Internal Server Error' });
+  }
+};
 
 exports.login = (req, res, next) => {
   // call the post method, which adds a route to the router object, to handle POST requests to the /api/auth/login endpoint
@@ -46,7 +66,7 @@ exports.login = (req, res, next) => {
             // call the sign method, which returns a token
             { userId: user._id }, // set the userId property of the token to the _id property of the User object
             "RANDOM_TOKEN_SECRET", // set the secret key used to generate the token
-            { expiresIn: "1h" }, // set the expiration time of the token
+            { expiresIn: "3h" }, // set the expiration time of the token
           ); // end of const token = jwt.sign( ... )
           res.status(200).json({
             // return a 200 OK status code and a JSON object

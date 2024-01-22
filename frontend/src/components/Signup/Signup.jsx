@@ -48,8 +48,10 @@ const handleSignUpSubmit = async (event) => {
         handleLogin(event);
     }, 2000);
     } else {
-    setErrorMessage("An error has occured, please try again");
-    }
+        // BAD NEWS.
+        let errorMessage = await signUpResponse.json();
+        setsignupStatus(errorMessage.message || "An error has occurred, please try again");
+    }    
 }
 
 const handleLogin = async (event) => {

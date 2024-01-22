@@ -9,7 +9,6 @@ const NavBar = ({ navigate }) => {
   const location = useLocation();
 
   const logout = () => {
-    window.localStorage.clear();
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('username');
   };
