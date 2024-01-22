@@ -6,6 +6,10 @@
   padding-top: 10px;
 }
 
+.indvpageimage {
+  max-width: 90%;
+}
+
 .image:hover {
   transform: scale(1.02); /* Enlarge the image by 10% on hover */
 }
