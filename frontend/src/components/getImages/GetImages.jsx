@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import "./GetImages.css"
+import baseUrl from '../../../util/baseUrl';
 
 
 const GetImages = ({ }) => {
@@ -8,7 +9,7 @@ const GetImages = ({ }) => {
 
   useEffect(() => {
     // if(token) {
-      fetch("http://localhost:8080/api/image", {
+      fetch(`${baseUrl}/api/image`, {
         // headers: {
         //   'Authorization': `Bearer ${token}`
         // }

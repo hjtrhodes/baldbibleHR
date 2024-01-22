@@ -30,7 +30,7 @@ const Feed = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/images", {})
+    fetch(`${baseUrl}/api/images"`, {})
       .then((response) => response.json())
       .then((data) => {
         // Reverse the order of images here

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns'; // Import the necessary function
 import Button from '../Button/Button';
+import baseUrl from '../../../util/baseUrl';
 import './comment.css'; // Import your CSS file
 
 const Modal = ({ closeModal, comments, onDeleteComment, userId }) => (
@@ -47,7 +48,7 @@ const Comments = ({ imageId }) => {
         return;
       }
 
-      const url = `http://localhost:8080/api/images/${imageId}/comments/${commentId}`;
+      const url = `${baseUrl}/api/images/${imageId}/comments/${commentId}`;
       const options = {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -56,7 +57,7 @@ const Comments = ({ imageId }) => {
 
       await axios.delete(url, options);
 
-      const response = await axios.get(`http://localhost:8080/api/images/${imageId}/comments`, {
+      const response = await axios.get(`${baseUrl}/api/images/${imageId}/comments`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -72,7 +73,7 @@ const Comments = ({ imageId }) => {
     // Fetch existing comments for the image
     console.log('Fetching comments for imageId:', imageId);
     axios
-      .get(`http://localhost:8080/api/images/${imageId}/comments`, {
+      .get(`${baseUrl}/api/images/${imageId}/comments`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -108,7 +109,7 @@ const Comments = ({ imageId }) => {
       }
 
       // Send a request to add a new comment
-      const url = `http://localhost:8080/api/images/${imageId}/comments`;
+      const url = `${baseUrl}/api/images/${imageId}/comments`;
       const body = {
         content: newComment,
       };
@@ -121,7 +122,7 @@ const Comments = ({ imageId }) => {
       await axios.post(url, body, options);
 
       // Refresh the comments after submitting a new comment
-      const response = await axios.get(`http://localhost:8080/api/images/${imageId}/comments`, {
+      const response = await axios.get(`${baseUrl}/api/images/${imageId}/comments`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
