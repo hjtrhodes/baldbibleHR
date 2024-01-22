@@ -1,6 +1,6 @@
 # Bald Bible
 
-Click here to see the deployment: [Bald Bible]([https://hrhodes.co.uk](https://baldbible-s8q0.onrender.com/))
+Click here to see the deployment: [Bald Bible](https://baldbible-s8q0.onrender.com/)
 
 BaldBible is my final Makers project. It is an idea that I pitched after experiencing hair loss and feeling that there should be a more obvious alternative to the hair loss prevention industry. As a result it is a Pinterest style, hair loss positivity website leveraging the power of images to inspire users to be more accepting of themselves.
 
