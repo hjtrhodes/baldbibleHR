@@ -46,7 +46,7 @@ exports.login = (req, res, next) => {
             // call the sign method, which returns a token
             { userId: user._id }, // set the userId property of the token to the _id property of the User object
             "RANDOM_TOKEN_SECRET", // set the secret key used to generate the token
-            { expiresIn: "24h" }, // set the expiration time of the token
+            { expiresIn: "1h" }, // set the expiration time of the token
           ); // end of const token = jwt.sign( ... )
           res.status(200).json({
             // return a 200 OK status code and a JSON object
