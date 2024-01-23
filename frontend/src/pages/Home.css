@@ -28,10 +28,52 @@
     color:lightsalmon;
 }
 
-.rendertimer {
+.messagebutton {
+    display: block;
+    margin: auto;
     text-align: center;
-    margin-bottom: 15px;
-    font-size: 25px;
-    font-weight: bold;
-    color: lightsalmon;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    background-color: lightsalmon;
+    color: #fff;
+    font-size: 0.7vw;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: uppercase;
+    border-radius: 99rem;
+    border-width: 0px;
+    overflow: hidden;
+    padding: 0.3rem 0.9rem;
+    position: relative;
+    transition: transform 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.messagebutton:hover {
+    transform: scale(1.03);
+}
+
+.showmessagebutton {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    background-color: lightsalmon;
+    color: #fff;
+    font-size: 0.7vw;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: uppercase;
+    border-radius: 99rem;
+    border-width: 0px;
+    overflow: hidden;
+    padding: 0.3rem 0.9rem;
+    position: relative;
+    transition: transform 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.showmessagebutton:hover {
+    transform: scale(1.03);
 }
