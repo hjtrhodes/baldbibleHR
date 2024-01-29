@@ -12,6 +12,7 @@
 
 .image:hover {
   transform: scale(1.02); /* Enlarge the image by 10% on hover */
+  cursor: pointer; /* Set cursor to pointer for clickable buttons */
 }
 
 #image-list {
