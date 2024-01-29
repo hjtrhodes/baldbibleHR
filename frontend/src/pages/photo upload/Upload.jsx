@@ -22,6 +22,11 @@ const Upload = ({ navigate }) => {
     }, 2500);
   };
 
+        // Sets page title
+  useEffect(() => {
+    document.title = 'Upload';
+  }, []);
+
   useEffect(() => {
     console.log(image);
   }, [image]);

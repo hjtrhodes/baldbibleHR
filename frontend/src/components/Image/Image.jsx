@@ -12,6 +12,11 @@ const Image = (props) => {
   const username = searchParams.get("username");
   const dateAdded = new Date(searchParams.get("dateAdded")).toLocaleString();
   
+    // Sets page title
+    useEffect(() => {
+      document.title = 'Image';
+  }, []);
+
     useEffect(() => {
     // Scroll to the top when the component mounts
     window.scrollTo(0, 0);

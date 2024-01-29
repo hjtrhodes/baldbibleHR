@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import Feed from '../components/feed/Feed';
 import './Home.css';
 
@@ -8,6 +8,11 @@ const Home = ({ navigate }) => {
     const handleToggleMessage = () => {
         setShowLongMessage(!showLongMessage);
     };
+
+        // Sets page title
+    useEffect(() => {
+        document.title = 'Bald Bible';
+    }, []);
 
     return (
         <div>
