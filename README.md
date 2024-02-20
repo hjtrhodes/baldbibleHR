@@ -15,7 +15,7 @@ BaldBible is my final Makers project. It was created working in a team of 4 Soft
 - Testing: Cypress, Jest
 - Other Technologies: Cloudinary, Bcrypt, CSS, Vite
 
-### Planning: Excalidraw/Figma Wireframes and Componentry
+### Planning: Excalidraw, Wireframes and Componentry
 ![Planning Phase](https://res.cloudinary.com/dut4qf1bt/image/upload/v1708419913/Demo%20Videos/BaldBiblePlanning_j14kes.png "Planning Phase")
 
 ### Agile Working using Trello
