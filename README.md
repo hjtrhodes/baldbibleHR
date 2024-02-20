@@ -9,16 +9,17 @@ Click here to see the deployment: [Bald Bible](https://baldbible-s8q0.onrender.c
 ## Project Description
 BaldBible is my final Makers project. It is an idea that I pitched after experiencing hair loss and feeling that there should be a more obvious alternative to the hair loss prevention industry. As a result it is a Pinterest style, hair loss positivity website leveraging the power of images to inspire users to be more accepting of themselves.
 
-### Project Timeline: 8 days to MVP
-### Tech Stack: Reactjs, Express, Nodejs, MongoDB
-### Testing: Cypress, Jest
+Project Timeline: 8 days to MVP
+Tech Stack: Reactjs, Express, Nodejs, MongoDB
+Testing: Cypress, Jest
 
 ### Planning: Excalidraw/Figma Wireframes and Componentry
-![Planning Phase]([https://res.cloudinary.com/dut4qf1bt/image/upload/v1708419913/Demo%20Videos/BaldBiblePlanning_j14kes.png] "Planning Phase")
+![Planning Phase](https://res.cloudinary.com/dut4qf1bt/image/upload/v1708419913/Demo%20Videos/BaldBiblePlanning_j14kes.png "Planning Phase")
 
 ### Agile Working using Trello
 
-## Functionality:
+
+## Final Acheived MVP Functionality:
 - Login: Must be unique email and correct password
 - Signup: All fields must be completed, email must be correct format, password must be certain length and contain special character
 - Password Security: Passwords are bcrypt hashed on signup before being stored in database
@@ -29,6 +30,7 @@ BaldBible is my final Makers project. It is an idea that I pitched after experie
 - Image Upload - Cloudinary Image upload and storage, images automatically display on the feed on upload
 - Comments - conditionally render on button click, can also be deleted if user matches comment UserId
 - Likes - User can like/unlike an image
+- Testing - Test database setup and connected, frontend and api tests in place
 
 #### My responsibilities:
 Project setup:
@@ -45,17 +47,17 @@ Project Sprints:
 
 Other:
 - Personal Deployment of project
-  
-#### Scope of Work (MVP):
 
-#### Results: 
+## Challenges and actions to overcome
+- Cloudinary
+- Conflict
+- Likes
+- Test Suite
+- Image Feed
+- Merge Conflicts
 
-## Issues and Challenges
-Mention Soft Skills
-
-
-
-## Run Bald Bible in dev mode
+## Local env setup for Bald Bible
+### Run Bald Bible in dev mode
 Start the frontend and backend servers together.
 ```
 cd backend
@@ -70,7 +72,7 @@ Start the backend server only.
 npm run backend
 ```
 
-## MongoDB database password
+### MongoDB database password
 Add a `config.js` file in the backend and add this to `.gitignore`.
 Add the MongoDB password to `config.js`.
 ```
