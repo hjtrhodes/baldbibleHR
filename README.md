@@ -7,7 +7,7 @@ Click here to see the deployment: [Bald Bible](https://baldbible-s8q0.onrender.c
 [![Video](https://img.youtube.com/vi/RZVKPn00WF8/0.jpg)](https://www.youtube.com/watch?v=RZVKPn00WF8&t=61s)
 
 ## Project Description
-BaldBible is my final Makers project. It was created working in a team of 4 Software Developers and 2 Quality Engineers. The idea for the app came from my own experiences hair loss and feeling that there should be a more obvious alternative to the hair loss prevention industry to help individuals embrace this natural change. The process of pitching, discussing and communicating the importance of this idea and having the rest of my developers choose it as the final project was very personal and gratifying to me, as was the process of creating it. After conception and discussion Bald Bible became a Pinterest style, hair loss positivity website leveraging the power of images to inspire users to be more accepting of themselves.
+BaldBible is my final Makers project. It was created working in a team of 4 Software Developers and 2 Quality Engineers. The idea for the app came from my own experiences of hair loss and feeling that there should be a more obvious alternative to the hair loss prevention industry to help individuals embrace this natural change. The process of pitching, discussing and communicating the importance of this idea and having the rest of my developers choose it as the final project was very personal and gratifying to me, as was the process of creating it. After conception and discussion Bald Bible became a Pinterest style, hair loss positivity website leveraging the power of images to inspire users to be more accepting of themselves.
 
 - Project Timeline: 8 days to MVP
 - Tech Stack: Reactjs, Express, Nodejs, MongoDB
