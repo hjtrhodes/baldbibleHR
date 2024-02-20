@@ -13,7 +13,7 @@ BaldBible is my final Makers project. It was created working in a team of 4 Soft
 - Main Language: Javascript
 - Tech Stack: React, Express, Node.js, MongoDB
 - Testing: Cypress, Jest
-- Other Technologies: Cloudinary, Bcrypt, CSS
+- Other Technologies: Cloudinary, Bcrypt, CSS, Vite
 
 ### Planning: Excalidraw/Figma Wireframes and Componentry
 ![Planning Phase](https://res.cloudinary.com/dut4qf1bt/image/upload/v1708419913/Demo%20Videos/BaldBiblePlanning_j14kes.png "Planning Phase")
