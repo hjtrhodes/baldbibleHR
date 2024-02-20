@@ -58,6 +58,7 @@ Cloudinary:
 
 Likes:
 - My initial method of creating likes functionality was overcomplicated and involved mulitple fetch requests to the backend. I discussed this with the team and we created the more appropriate solution that each post object has an array of userIds which represent the likes and are triggered to be added/removed onClick, then the likes amount is displayed as the length of that array.
+
 Test Suite
 - Setting up a test database which could be used separately in the local env and not effect the main database was initially causing errors. I had to conduct research around this in order to created the correct settings for the connection in the codebase and communicate this to the QE's who could then use the correct syntax in their tests to ensure any backend testing was utilising the correct database. 
 
