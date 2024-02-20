@@ -14,7 +14,7 @@ BaldBible is my final Makers project. It is an idea that I pitched after experie
 ### Testing: Cypress, Jest
 
 ### Planning: Excalidraw/Figma Wireframes and Componentry
-![Planning Phase]([https://asset.cloudinary.com/dut4qf1bt/932d874966880e91ffff36b99f3d2a77] "Planning Phase")
+![Planning Phase]([https://res.cloudinary.com/dut4qf1bt/image/upload/v1708419913/Demo%20Videos/BaldBiblePlanning_j14kes.png] "Planning Phase")
 
 ### Agile Working using Trello
 
