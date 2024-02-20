@@ -36,11 +36,11 @@ BaldBible is my final Makers project. It was created working in a team of 4 Soft
 
 #### My responsibilities:
 Project setup:
-    - Leading initial planning/discussions around idea conception and wireframing using Excalidraw and Figma
-    - Initialising frontend, ensuring correct endpoint for api and testing connections
-    - Initialising cloud hosted database (using MongoDB Atlas) and troubleshooting local env connections for all Devs
-    - Creating test database and creating test connection that would not interfere with general running of the app
-    - Creating Trello board and initial tickets
+- Leading initial planning/discussions around idea conception and wireframing using Excalidraw and Figma
+- Initialising frontend, ensuring correct endpoint for api and testing connections
+- Initialising cloud hosted database (using MongoDB Atlas) and troubleshooting local env connections for all Devs
+- Creating test database and creating test connection that would not interfere with general running of the app
+- Creating Trello board and initial tickets
 
 Project Sprints:
 - Individual responsibilities: Login, Signup, Password Security, Images being clickable buttons, styling, Likes
