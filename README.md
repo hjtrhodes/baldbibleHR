@@ -15,26 +15,7 @@ Click here to see the deployment: [Bald Bible](https://baldbible-s8q0.onrender.c
 ## Project Description
 BaldBible is my final Makers project. It was created working in a team of 4 Software Developers and 2 Quality Engineers. The idea for the app came from my own experiences of hair loss and feeling that there should be a more obvious alternative to the hair loss prevention industry to help individuals embrace this natural change. The process of pitching, discussing and communicating the importance of this idea and having the rest of my developers choose it as the final project was very personal and gratifying to me, as was the process of creating it. After conception and discussion Bald Bible became a Pinterest style, hair loss positivity website leveraging the power of images to inspire users to be more accepting of themselves.
 
-### Planning: Excalidraw, Wireframes and Componentry
-![Planning Phase](https://res.cloudinary.com/dut4qf1bt/image/upload/v1708419913/Demo%20Videos/BaldBiblePlanning_j14kes.png "Planning Phase")
-
-### Agile Working using Trello
-![Trello Board](https://res.cloudinary.com/dut4qf1bt/image/upload/v1708420684/Demo%20Videos/BaldBibleTrello_ezvxtl.png "Trello Board")
-
-## Final Acheived MVP Functionality:
-- Login: Must be unique email and correct password
-- Signup: All fields must be completed, email must be correct format, password must be certain length and contain special character
-- Password Security: Passwords are bcrypt hashed on signup before being stored in database
-- Dynamic page elements - buttons, login/signup, Feed Page
-- Image Feed - Each picture is clickable to see content
-- Security - User cannot comment/like without being logged in
-- Responsive - Whole web app is responsive to different screen sizes
-- Image Upload - Cloudinary Image upload and storage, images automatically display on the feed on upload
-- Comments - conditionally render on button click, can also be deleted if user matches comment UserId
-- Likes - User can like/unlike an image
-- Testing - Test database setup and connected, frontend and api tests in place
-
-#### My responsibilities:
+### My responsibilities:
 Project setup:
 - Leading initial planning/discussions around idea conception and wireframing using Excalidraw and Figma
 - Initialising frontend, ensuring correct endpoint for api and testing connections
@@ -49,6 +30,25 @@ Project Sprints:
 
 Other:
 - Personal Deployment of project
+
+## Final Acheived MVP Functionality:
+- Login: Must be unique email and correct password
+- Signup: All fields must be completed, email must be correct format, password must be certain length and contain special character
+- Password Security: Passwords are bcrypt hashed on signup before being stored in database
+- Dynamic page elements - buttons, login/signup, Feed Page
+- Image Feed - Each picture is clickable to see content
+- Security - User cannot comment/like without being logged in
+- Responsive - Whole web app is responsive to different screen sizes
+- Image Upload - Cloudinary Image upload and storage, images automatically display on the feed on upload
+- Comments - conditionally render on button click, can also be deleted if user matches comment UserId
+- Likes - User can like/unlike an image
+- Testing - Test database setup and connected, frontend and api tests in place
+
+## Planning: Excalidraw, Wireframes and Componentry
+![Planning Phase](https://res.cloudinary.com/dut4qf1bt/image/upload/v1708419913/Demo%20Videos/BaldBiblePlanning_j14kes.png "Planning Phase")
+
+### Agile Working using Trello
+![Trello Board](https://res.cloudinary.com/dut4qf1bt/image/upload/v1708420684/Demo%20Videos/BaldBibleTrello_ezvxtl.png "Trello Board")
 
 ## Challenges/Actions we took to overcome
 
