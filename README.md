@@ -60,7 +60,7 @@ Likes:
 - My initial method of creating likes functionality was overcomplicated and involved mulitple fetch requests to the backend. I discussed this with the team and we created the more appropriate solution that each post object has an array of userIds which represent the likes and are triggered to be added/removed onClick, then the likes amount is displayed as the length of that array.
 
 Test Suite
-- Setting up a test database which could be used separately in the local env and not effect the main database was initially causing errors. I had to conduct research around this in order to created the correct settings for the connection in the codebase and communicate this to the QE's who could then use the correct syntax in their tests to ensure any backend testing was utilising the correct database. 
+- Setting up a test database which could be used separately in the local env and not effect the main database was initially causing errors. I had to conduct research around this in order to create the correct settings for the connection in the codebase and communicate this to the QE's who could then use the correct syntax in their tests to ensure any backend testing was utilising the test database. 
 
 Image Feed
 - We had a lot of discussion over the creation of the image feed as it is the main website feature - How should it look? What is the best means of creating it? We settled on using an external library (MUI) to help us structure it correctly and then assigned a dev to implement this and test it using hardcoded images (later we deleted these once the Cloudinary upload was working). 
