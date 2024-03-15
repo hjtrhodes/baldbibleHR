@@ -1,79 +1,86 @@
 .mainHeader {
-    text-align: center;
-    padding: 20px;
-    font-size: 30px;
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
 }
 
 .mainTagline {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 25px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 25px;
+}
+
+.testuser {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: lightsalmon;
 }
 
 .rendercontainer {
-    width: 90%;
-    margin: auto;
-    
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    padding: 20px;
-    border: 1px solid lightsalmon;
-    margin-bottom: 30px;
+  width: 90%;
+  margin: auto;
+
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid lightsalmon;
+  margin-bottom: 30px;
 }
 
 .rendermessage {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 18px;
-    color:lightsalmon;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: lightsalmon;
 }
 
 .messagebutton {
-    display: block;
-    margin: auto;
-    text-align: center;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    background-color: lightsalmon;
-    color: #fff;
-    font-size: 1.5vw;
-    font-weight: 600;
-    line-height: 1.5;
-    text-transform: uppercase;
-    border-radius: 99rem;
-    border-width: 0px;
-    overflow: hidden;
-    padding: 0.3rem 0.9rem;
-    position: relative;
-    transition: transform 0.1s ease-in-out;
-    cursor: pointer;
+  display: block;
+  margin: auto;
+  text-align: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  background-color: lightsalmon;
+  color: #fff;
+  font-size: 1.5vw;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+  border-radius: 99rem;
+  border-width: 0px;
+  overflow: hidden;
+  padding: 0.3rem 0.9rem;
+  position: relative;
+  transition: transform 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 .messagebutton:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .showmessagebutton {
-    display: block;
-    margin: auto;
-    text-align: center;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    background-color: lightsalmon;
-    color: #fff;
-    font-size: 1.5vw;
-    font-weight: 600;
-    line-height: 1.5;
-    text-transform: uppercase;
-    border-radius: 99rem;
-    border-width: 0px;
-    overflow: hidden;
-    padding: 0.3rem 0.9rem;
-    position: relative;
-    transition: transform 0.1s ease-in-out;
-    cursor: pointer;
+  display: block;
+  margin: auto;
+  text-align: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  background-color: lightsalmon;
+  color: #fff;
+  font-size: 1.5vw;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+  border-radius: 99rem;
+  border-width: 0px;
+  overflow: hidden;
+  padding: 0.3rem 0.9rem;
+  position: relative;
+  transition: transform 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 .showmessagebutton:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }

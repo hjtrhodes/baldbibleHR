@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Feed from "../components/feed/Feed";
 import "./Home.css";
 
@@ -25,10 +25,8 @@ const Home = ({ navigate }) => {
           and thrive.
         </p>
         <p className="testuser" id="home-statement">
-          <small>
-            If you would like to see the content without signing up, you can use
-            the following test user: test@test.com, Password123!
-          </small>
+          If you would like to see the content without signing up, you can use
+          the following test user: <strong>test@test.com, Password123!</strong>
         </p>
         {!showLongMessage && (
           <>
