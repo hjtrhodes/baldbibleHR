@@ -69,7 +69,7 @@ Merge Conflicts
 - Inevitably on a small project such as this we did suffer from merge conflicts. We had a clear system for version control - pull, setup your branch, regular commits, before you push - pull the latest changes and merge them with your branch, once pushed create a pull request which must be checked and approved by another dev. Despite this we had issues with conflicts in package.lock.json and when devs were working in the same component. We moved past this using regular communication, pair programming and often solving the merge conflicts together using the VSCode merge editor before we pushed to GitHub.
 
 Communication
-- Due to the tight timeline the team did experience a difficult moment, we had an issue where two devs had picked up the same ticket but had not moved it on the Trello Board and ended up creating different solutions to a problem. Ultimately the issue here was not following the Agile process and a breakdown in communicatiomn. To solve this the other devs became involved as we discussed what had gone wrong, how to ensure it didn't happen again and which solution to move forward with for the project.
+- Due to the tight timeline the team did experience a difficult moment, we had an issue where two devs had picked up the same ticket but had not moved it on the Trello Board and ended up creating different solutions to a problem. Ultimately the issue here was not following the Agile process and a breakdown in communication. To solve this the other devs became involved as we discussed what had gone wrong, how to ensure it didn't happen again and which solution to move forward with for the project.
   
 ## Local env setup for Bald Bible
 ### Run Bald Bible in dev mode
