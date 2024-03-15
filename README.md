@@ -54,7 +54,7 @@ Other:
 
 Cloudinary:
 - Cloudinary was difficult to initialise in the project, particularly the image upload which was causing errors, not automatically rerendering the image feed and not all devs were able to upload in their local envs.
-- To move past this I pair programmed with the dev responsible for the image upload and we worked throught the cloudinary documentation and set up together. As a team we knowledge shared how this worked and communicated on how to setup our local envs and Cloudinary accounts with .config to ensure all could upload in the local dev environment. 
+- To move past this I pair programmed with the dev responsible for the image upload and we worked through the cloudinary documentation and set up together. As a team we knowledge shared how this worked and communicated on how to setup our local envs and Cloudinary accounts with .config to ensure all could upload in the local dev environment. 
 
 Likes:
 - My initial method of creating likes functionality was overcomplicated and involved mulitple fetch requests to the backend. I discussed this with the team and we created the more appropriate solution that each post object has an array of userIds which represent the likes and are triggered to be added/removed onClick, then the likes amount is displayed as the length of that array.
