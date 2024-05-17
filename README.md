@@ -6,9 +6,6 @@
 - Testing: Cypress, Jest
 - Other Technologies: Cloudinary, Bcrypt, CSS, Vite
 
-## Live Deployment
-Click here to see the deployment: [Bald Bible](https://baldbible-s8q0.onrender.com/)
-
 ## Functionality Demo - Opens on Youtube
 [![Video](https://img.youtube.com/vi/RZVKPn00WF8/0.jpg)](https://www.youtube.com/watch?v=RZVKPn00WF8&t=61s)
 
